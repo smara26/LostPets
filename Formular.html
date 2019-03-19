@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="form.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <title>Form</title>
+</head>
+<body>
+        <header class="header-wrap">
+                <nav>
+                    <div class="content-wrap">
+                        <img src="logoLP.jpg" alt="logo" class="logo">
+                    </div>
+                </nav>
+            </header>
+            <div class="formMessage">
+                <h3>Let us help you find your animal! Give us some details!</h3>
+            </div>
+            <form id="form-wrap" action="/form" method="POST">
+                <div>
+                    <label for="formPName">Pet's Name*:</label>
+                    <br>
+                    <input type="text" required id="formPName" />
+                </div>
+                <br>
+                <div>
+                    <label for="file">Choose a photo of your buddy:</label>
+                    <br>
+                    <input type="file" name="file" id="formPhoto" />
+                </div>
+                <br>
+                <div>
+                    <label for="formPlace">Place where you saw him/her last time*:</label>
+                    <br>
+                    <img id="map" src="map.png" alt="Workplace" usemap="#workmap">
+                    <map name="workmap">
+                        <area shape="circle" coords="291,265,24" alt="Zone1" href="#">
+                        <area shape="circle" coords="418,204,14" alt="Zone2" href="#">
+                        <area shape="circle" coords="337,300,44" alt="Zone3" href="#">
+                        <area shape="circle" coords="125,82,137" alt="Zone4" href="#">
+                        <area shape="circle" coords="535,248,125" alt="Zone5" href="#">
+                        <area shape="circle" coords="427,281,7" alt="Zone6" href="#">
+                    </map>
+                </div>
+                <br>
+                <div>
+                    <label for="formSpecies">Species*:</label>
+                    <br>
+                    <input type="text" required id="formSpecies" />
+                </div>
+                <br>
+                <div>
+                    <label for="formMarks">Personal marks:</label>
+                    <br>
+                    <input type="text" id="formMarks" />
+                </div>
+                <br>
+                <div>
+                    <label for="formCoolar">Coolar's details:</label>
+                    <br>
+                    <input type="text" id="formCoolar" />
+                </div>
+                <br>
+                <div>
+                    <label for="formReward">Reward:</label>
+                    <br>
+                    <input type="number" id="formReward" />
+                </div>
+                <br>
+                <div>
+                    <label for="formPhone">Phone*:</label>
+                    <br>
+                    <input type="number" id="formPhone" />
+                </div>
+                <br>
+                <div>
+                    <label for="formEmail">E-mail*:</label>
+                    <br>
+                    <input type="email" required id="formEmail" />
+                </div>
+                <br>
+                <div id="terms">
+                    <input type="checkbox" value="terms" required id="formTerms" />
+                    <label for="formTerms">I have read and accepted the Terms & Conditions</label>
+                </div>
+                <button type="submit">Add Missing Pet</button>
+            </form>
+</body>
+</html>

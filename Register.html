@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="register.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <title>Register</title>
+</head>
+<body>
+    <header class="header-wrap">
+        <nav>
+            <div class="content-wrap">
+                <img src="logoLP.jpg" alt="logo" class="logo">
+            </div>
+        </nav>
+    </header>
+    <form id="register-wrap" action="/register" method="POST">
+        <div>
+            <label for="registerFName">First Name*:</label>
+            <br>
+            <input type="text" required id="registerFName" />
+        </div>
+        <br>
+        <div>
+            <label for="registerLName">Last Name:</label>
+            <br>
+            <input type="text" id="registerLName" />
+        </div>
+        <br>
+        <div>
+            <label for="registerEmail">E-mail*:</label>
+            <br>
+            <input type="email" required id="registerEmail" />
+        </div>
+        <br>
+        <div>
+            <label for="registerPassword">Password*:</label>
+            <br>
+            <input type="password" name="password" required minlength="6" id="registerPassword" />
+        </div>
+        <br>
+        <div>
+            <label for="registerRepeatPassword">Repeat password*:</label>
+            <br>
+            <input type="password" name="repeatPassword" required minlength="6" id="registerRepeatPassword" />
+        </div>
+        <br>
+        <div>
+            <label for="registerAge">Age:</label>
+            <br>
+            <input type="number" min="1" max="100" id="registerAge" />
+        </div>
+        <br>
+        <div>
+            <label for="registerGender">Gender:</label>
+            <select id="registerGender">
+                <option value="null">N/A</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+        <br>
+        <div id="terms">
+            <input type="checkbox" value="terms" required id="registerTerms" />
+            <label for="registerTerms">I have read and accepted the Terms & Conditions</label>
+        </div>
+        <button type="submit">Register</button>
+    </form>
+
+</body>
+</html>
