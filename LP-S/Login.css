@@ -7,7 +7,7 @@
 
 html,
 body {
-    background-image: rgba(238, 230, 230, 0.1);
+    background-color: rgb(255, 231, 230, 0.2);
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -58,7 +58,7 @@ button{
     padding: 10px 30px;
     font-weight: 300;
     text-decoration: none;
-    border-radius: 45%;
+    border-radius: 4%;
     transition: background-color 0.2s, border 0.2s, color 0.7s; 
     border: 2px solid #fd6f68;
     background-color: transparent;
@@ -73,7 +73,7 @@ button{
     padding: 10px 30px;
     font-weight: 300;
     text-decoration: none;
-    border-radius: 45%;
+    border-radius: 4%;
     transition: background-color 0.2s, border 0.2s, color 0.7s; 
     border: 2px solid #fd6f68;
     background-color: transparent;
@@ -135,17 +135,17 @@ button:active {
     color: #fff;
 }
 
+.btn.btn-ghost:link, 
+.btn.btn-ghost:visited{
+    border: 2px solid #fd6f68;
+    color: #fd6f68;
+}
+
 .btn.btn-ghost:hover,
 .btn.btn-ghost:active {
     background-color: #fe908b;
     border: 2px solid #fd6f68;
     color: #fff;
-}
-
-.btn.btn-ghost:link, 
-.btn.btn-ghost:visited{
-    border: 2px solid #fd6f68;
-    color: #fd6f68;
 }
 #close {
     position: absolute;
@@ -161,4 +161,85 @@ button:active {
     color: #fe908b;
   }
 
+@media only screen and (max-width:1024px){
+    .header-wrap{
+        height: 9%;
+    }
+    .logo{
+        height: 125px;
+    }
+    #log-in-wrap{
+        padding-left: 0;
+        padding-right: 0;
+        font-size: 30px;
+    }
+    .btn.btn-ghost:link{
+        background-color: #fe908b;
+        color: #fff;
+    }
 
+}
+
+@media only screen and (max-width:768px){
+    .header-wrap{
+        height: 9%;
+    }
+    .logo{
+        height: 92px;
+    }
+}
+@media only screen and (max-width:415px){
+    .header-wrap{
+        height: 50px;
+    }
+    .logo{
+        height: 51px;
+    }
+    #log-in-wrap{
+        padding-left: 0;
+        padding-right: 0;
+        font-size: 15px;
+    }
+    .btn.btn-ghost{
+        padding: 3px 7px;
+        border: 1.5px solid #fd6f68;
+    }   
+}
+@media only screen and (max-width:376px){
+    .logo{
+        height: 50px;
+    }
+    .header-wrap{
+        height: 50px;
+    }
+    #log-in-wrap{
+        padding-left: 0;
+        padding-right: 0;
+        font-size: 15px;
+    }
+    .btn.btn-ghost{
+        padding: 3px 6px;
+    }
+}
+@media only screen and (max-width:360px){
+    .header-wrap{
+        height: 7%;
+    }
+    .logo{
+        height: 45px;
+    }
+}
+@media only screen and (max-width:320px){
+    
+    .logo{
+        height: 40px;
+    }
+    #log-in-wrap{
+        padding-left: 0;
+        padding-right: 0;
+        font-size: 10px;
+    }
+    .btn.btn-ghost{
+        border: 1.5px solid #fd6f68;
+    }   
+}

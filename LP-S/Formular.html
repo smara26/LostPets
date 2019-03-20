@@ -10,9 +10,30 @@
 </head>
 <body>
         <header class="header-wrap">
-                <nav>
+                <nav class="topnav">
+                        <a href="Home2.html" class="active">Log out</a>
+                        <div class="dropdown">
+                            <button class="dropbtn">@Smarandita
+                                <i class="down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="#">My ads</a>
+                                <a href="#">Statitics</a>
+                            </div>
+                        </div>
+                        <a href="#about">Announcements</a>
+                        <a href="#" class="notification">
+                            <span></span>
+                            <span class="badge">3</span>
+                        </a> 
+                    <form action="http://google.com" method="GET" >
+                        <label for="searchIn"></label>
+                        <input type="search" name="q" id="searchIn" placeholder="Search" maxlength="256">
+                    </form>
                     <div class="content-wrap">
-                        <img src="logoLP.jpg" alt="logo" class="logo">
+                        <a href="Home2.html">
+                            <img src="logoLP.jpg" alt="logo" class="logo">
+                        </a>
                     </div>
                 </nav>
             </header>
@@ -29,11 +50,11 @@
                 <div>
                     <label for="file">Choose a photo of your buddy:</label>
                     <br>
-                    <input type="file" name="file" id="formPhoto" />
+                    <input type="file" name="file" id="file" />
                 </div>
                 <br>
                 <div>
-                    <label for="formPlace">Place where you saw him/her last time*:</label>
+                    <label>Place where you saw him/her last time*:</label>
                     <br>
                     <img id="map" src="map.png" alt="Workplace" usemap="#workmap">
                     <map name="workmap">
@@ -84,9 +105,9 @@
                 <br>
                 <div id="terms">
                     <input type="checkbox" value="terms" required id="formTerms" />
-                    <label for="formTerms">I have read and accepted the Terms & Conditions</label>
+                    <label for="formTerms" id="registerT">I have read and accepted the Terms & Conditions</label>
                 </div>
-                <button type="submit">Add Missing Pet</button>
+                <a class= "button" href="#">Add Missing Pet</a>
             </form>
 </body>
 </html>
