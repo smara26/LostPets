@@ -106,7 +106,7 @@ input{
     border-radius: 5px;
     width: 30%;
     position: relative;
-    transition: all 5s ease-in-out;
+    transition: all 0.10s ease-in-out;
   }
   
   .popup h4 {
