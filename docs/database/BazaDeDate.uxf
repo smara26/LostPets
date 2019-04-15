@@ -1,0 +1,29 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><help_text></help_text><element><id>UMLClass</id><coordinates><x>130</x><y>320</y><w>230</w><h>260</h></coordinates><panel_attributes>User
+--
+F *IdAd:          NUMBER(4)
+   *Email:         VARCHAR2(30)
+   *Password:  VARCHAR2(30)
+   *FirstName: VARCHAR2(30)
+   *LastName: VARCHAR2(30)
+   *Gender:     VARCHAR2(15)
+   *Age:           NUMBER(4)
+   *Location:    VARCHAR2(40)
+  
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>590</x><y>320</y><w>230</w><h>260</h></coordinates><panel_attributes>My Ad
+--
+P *IdAd:                       NUMBER(3)
+   *Name:                     VARCHAR2(30)
+   *Breed:                     VARCHAR2(30)
+   *DateOfDisparition:  DATE
+   *Marks:                     VARCHAR2(50)
+   *Collar:                     VARCHAR2(50)
+   *Pendant:                 VARCHAR2(50)
+   *LastSeenPlace:      VARCHAR2(100)
+   *Picture:                   VARCHAR2(50)
+   *Details:                   VARCHAR2(300)
+   *Owner:                    VARCHAR2(30)
+   *Phone:                    VARCHAR2(30)
+   *Mail:                        VARCHAR2(30)
+   *Reward:                  NUMBER(10)
+   *Found:                    BOOLEAN</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>350</x><y>420</y><w>260</w><h>50</h></coordinates><panel_attributes>m1=0..n
+</panel_attributes><additional_attributes>240;20;10;20</additional_attributes></element></diagram>
