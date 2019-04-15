@@ -1,0 +1,53 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>180</x><y>190</y><w>310</w><h>450</h></coordinates><panel_attributes>User
+--
+- mail: String
+- password: String
+- firstName: String
+- lastName: String
+- age: int
+- gender: String
+- location: String
+- listOfAds: vector&lt;Ad&gt;
+--
+- listAds() : vector&lt;Ad&gt;
+- searchAd(): vector&lt;Ad&gt;
+- addAd(): void
+- editAd(ad: Ad): void
+- deleteAd(id: int): void
+- editAdsMap(ad: Ad): void
+- createStatistics(type: String, ads: vector&lt;Ad&gt;):  void
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>640</x><y>190</y><w>310</w><h>450</h></coordinates><panel_attributes>Ad
+--
+- id: int
+- name: String
+- breed: String
+- marks: String
+- pendant: String
+- dateOfDisparition: String
+- lastSeenPlace: String
+- picture: String
+- details: String
+- owner: String
+- phone: String
+- mail: String
+- reward: int
+- found: bool
+--
++ getId(): String
++ getName(): String
++ getBreed(): String
++ getMarks(): String
++ getDateOfDisparition(): String
++ getLastSeenPlace(): String
++ getPicture(): String
++ getDetails(): String
++ getOwner(): String
++ getPhone(): String
++ getMail(): String
++ getReward(): String
++ getFound(): bool
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>480</x><y>300</y><w>180</w><h>40</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes><additional_attributes>160;10;10;10</additional_attributes></element></diagram>
