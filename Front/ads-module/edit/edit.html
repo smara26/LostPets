@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>LostPets</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="edit.css" />
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+</head>
+
+<body>
+  <div class="topnav" id="myTopnav">
+    <a href="../../home/home.html" class="active">Log out</a>
+    <div class="dropdown">
+      <button class="dropbtn">@Name
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="../page/page.html">My ads</a>
+        <a href="../../statistics/statistics.html">Statistics</a>
+      </div>
+    </div>
+    <a href="../page/page.html">Announcements</a>
+    <a href="#" class="notification">
+      <span></span>
+      <span class="badge">3</span>
+    </a>
+    <form action="http://google.com" method="GET">
+      <label for="search"></label>
+      <input type="search" name="s" id="search" placeholder="Search" maxlength="256">
+    </form>
+    <div class="content-wrap">
+      <img src="../../images/logo.png" alt="logo" class="logo">
+    </div>
+  </div>
+
+  <div class="lost-pet">
+    <div class="principle-details">
+      <img src="../../images/charles-2.jpg" alt="Charles-The pug">
+
+      <div class="first-details">
+        <h2>Details about the lost pet:</h2>
+
+        <p>
+          <label for="name-pet">Name: </label>
+          <input id="name-pet" name="name" placeholder="Charles">
+        </p>
+
+        <p>
+          <label for="breed-pet">Breed: </label>
+          <input id="breed-pet" name="breed" placeholder="Pug">
+        </p>
+
+        <p>
+          <label for="date-disp">Date of Disparition: </label>
+          <input id="date-disp" name="date" placeholder="15/03/2019">
+        </p>
+
+        <h2>Contact:</h2>
+
+        <p>
+          <label for="owner-pet">Owner: </label>
+          <input id="owner-pet" name="owner" placeholder="Sam Mendes">
+        </p>
+
+        <p>
+          <label for="owner-phone">Phone: </label>
+          <input id="owner-phone" name="phone" placeholder="0749 032 155">
+        </p>
+
+        <p>
+          <label for="owner-mail">Mail: </label>
+          <input id="owner-mail" name="mail" placeholder="sam.mendes@gmail.com">
+        </p>
+
+      </div>
+    </div>
+
+    <div class="description">
+      <h2>More details:</h2>
+      My poor pug responds at the name 'Charles'. He has just 5 months,
+      and a blue dog-collasr. Please, help me find him and, of course, the person that will
+      find him will receive a reward.
+
+      <p>
+        <label for="reward-pet">Reward: </label>
+        <input id="reward-pet" name="reward" placeholder="200$">
+      </p>
+    </div>
+
+    <div class="map">
+      <img id="map" src="../../images/map.png" alt="The Map">
+    </div>
+  </div>
+
+  <a class="btn btn-ghost" href="#popup1">Save Changes</a>
+
+  <div id="popup1" class="overlay">
+    <div class="popup">
+      <h4>Do you want to save the changes?</h4>
+      <a id="close" href="#">&times;</a>
+      <div class="contentPU">
+        <a href="../ad/ad.html" class="button" id="cancel">Cancel</a>
+        <a href="../ad/ad.html" class="button" id="allow">Save</a>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
