@@ -15,22 +15,24 @@ body {
   color: #344a5f;
   font-family: 'Raleway', sans-serif;
   font-weight: 300;
-  font-size: 20px;
+  font-size: 15px;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+
 }
 
-.header-wrap {
-  background-color: #5b81a4;
-  height: 12%;
-}
 
-.content-wrap {
-  background-color: #5b81a4;
-  height: 12%;
-  max-width: 100%;
-  margin: 0 auto;
-}
+/*.header-wrap {*/
+/*  background-color: #5b81a4;*/
+/*  height: 12%;*/
+/*}*/
+
+/*.content-wrap {*/
+/*  background-color: #5b81a4;*/
+/*  height: 12%;*/
+/*  max-width: 100%;*/
+/*  margin: 0 auto;*/
+/*}*/
 
 #register-wrap {
   display: block;
@@ -49,21 +51,23 @@ input {
   border-radius: 4px;
 }
 
-.logo {
-  height: 99px;
-  width: auto;
-  float: left;
-  padding-left: 10%;
+/*.logo {*/
+/*  height: 99px;*/
+/*  width: auto;*/
+/*  float: left;*/
+/*  padding-left: 10%;*/
+/*}*/
+form{
+  margin:2em;
 }
-
 #registerGender {
   height: 4vh;
   border-radius: 4px;
 }
 
-#terms {
-  text-align: right;
-}
+/*#terms {*/
+/*  text-align: right;*/
+/*}*/
 
 #registerTerms {
   width: 4%;
@@ -178,13 +182,13 @@ input {
 }
 
 @media only screen and (max-width:1024px) {
-  .header-wrap {
-    height: 9%;
-  }
+  /*.header-wrap {*/
+  /*  height: 9%;*/
+  /*}*/
 
-  .logo {
-    height: 125px;
-  }
+  /*.logo {*/
+  /*  height: 125px;*/
+  /*}*/
 
   #register-wrap {
     padding-left: 0;
@@ -232,9 +236,9 @@ input {
     height: 9%;
   }
 
-  .logo {
-    height: 92px;
-  }
+  /*.logo {*/
+  /*  height: 92px;*/
+  /*}*/
 }
 
 @media only screen and (max-width:415px) {
@@ -242,9 +246,9 @@ input {
     height: 50px;
   }
 
-  .logo {
-    height: 51px;
-  }
+  /*.logo {*/
+  /*  height: 51px;*/
+  /*}*/
 
   #register-wrap {
     padding-left: 0;
@@ -327,5 +331,54 @@ input {
 
   .button {
     border: 1.5px solid #fd6f68;
+  }
+}
+
+.logo {
+  height: 4em;
+  width: auto;
+  float: left;
+  margin: -5px 0px 0px 3em;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #5b81a4;
+  width: 100%;
+}
+
+.topnav a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+
+
+.content-wrap {
+  background-color: #5b81a4;
+  height: 12%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 300px) and (max-width: 700px) {
+
+
+  .topnav a {
+    float: right;
+    display: block;
+    padding: 2px 2px;
+    margin: 0px 0px;
+  }
+
+  img.logo {
+    height: 1.2em;
+    width: auto;
+    margin: 0px 0px 0px 0.5em;
   }
 }

@@ -11,53 +11,51 @@
 </head>
 
 <body>
-  <header class="header-wrap">
-    <nav>
-      <div class="content-wrap">
-        <img src="../images/logo.jpg" alt="logo" class="logo">
-      </div>
-    </nav>
-  </header>
-  <form id="register-wrap" action="/register" method="POST">
+  <div class="topnav" id="myTopnav">
+    <div class="content-wrap">
+      <img src="../images/logo.jpg" alt="logo" class="logo">
+    </div>
+  </div>
+  <form id="register-wrap" action="../../Back/register.php" method="POST">
     <div>
       <label for="registerFName">First Name*:</label>
       <br>
-      <input type="text" required id="registerFName" />
+      <input type="text" required id="registerFName" name="registerFName" />
     </div>
     <br>
     <div>
       <label for="registerLName">Last Name:</label>
       <br>
-      <input type="text" id="registerLName" />
+      <input type="text" id="registerLName" name="registerLName" />
     </div>
     <br>
     <div>
       <label for="registerEmail">E-mail*:</label>
       <br>
-      <input type="email" required id="registerEmail" />
+      <input type="email" required id="registerEmail" name="registerEmail"/>
     </div>
     <br>
     <div>
       <label for="registerPassword">Password*:</label>
       <br>
-      <input type="password" name="password" required minlength="6" id="registerPassword" />
+      <input type="password" required minlength="6" id="registerPassword" name="registerPassword"/>
     </div>
     <br>
     <div>
       <label for="registerRepeatPassword">Repeat password*:</label>
       <br>
-      <input type="password" name="repeatPassword" required minlength="6" id="registerRepeatPassword" />
+      <input type="password" name="registerRepeatPassword" required minlength="6" id="registerRepeatPassword" />
     </div>
     <br>
     <div>
       <label for="registerAge">Age:</label>
       <br>
-      <input type="number" min="1" max="100" id="registerAge" />
+      <input type="number" min="1" max="100" id="registerAge" name="registerAge" />
     </div>
     <br>
     <div>
       <label for="registerGender">Gender:</label>
-      <select id="registerGender">
+      <select id="registerGender" name="registerGender">
         <option value="null">N/A</option>
         <option value="male">Male</option>
         <option value="female">Female</option>
@@ -65,21 +63,23 @@
     </div>
     <br>
     <div id="terms">
-      <input type="checkbox" value="terms" required id="registerTerms" />
-      <label for="registerTerms" id="registerTerms">I have read and accepted the Terms & Conditions</label>
+      <input type="checkbox" value="terms" required id="registerTerms" name="registerTerms" />
+      <label for="registerTerms" name="registerTerms">I have read and accepted the Terms & Conditions</label>
     </div>
-    <a class="buttonR" href="#popup1">Register</a>
+    <button type="submit" value="register" class="buttonR">Register</button>
+
+    <p>Already a user <a href="../login/login.html">Log in</a></p>
   </form>
-  <div id="popup1" class="overlay">
-    <div class="popup">
-      <h4>You allow us to have access to your location?</h4>
-      <a id="close" href="#">&times;</a>
-      <div class="contentPU">
-        <a href="../ads-module/page/page.html" class="button" id="cancel">Cancel</a>
-        <a href="../ads-module/page/page.html" class="button" id="allow">Allow</a>
-      </div>
-    </div>
-  </div>
+<!--  <div id="popup1" class="overlay">-->
+<!--    <div class="popup">-->
+<!--      <h4>You allow us to have access to your location?</h4>-->
+<!--      <a id="close" href="#">&times;</a>-->
+<!--      <div class="contentPU">-->
+<!--        <a href="../ads-module/page/page.html" class="button" id="cancel">Cancel</a>-->
+<!--        <a href="../ads-module/page/page.html" class="button" id="allow">Allow</a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
 </body>
 
 </html>

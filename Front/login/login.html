@@ -11,37 +11,35 @@
 </head>
 
 <body>
-  <header class="header-wrap">
-    <nav>
-      <div class="content-wrap">
-        <img src="../images/logo.jpg" alt="logo" class="logo">
-      </div>
-    </nav>
-  </header>
-  <form id="log-in-wrap" action="/login" method="POST">
-    <div class="content">
-      <label for="loginEmail">E-mail*:</label>
-      <br>
-      <input type="email" required id="loginEmail" />
-    </div>
-    <br>
-    <div class="content">
-      <label for="loginPassword">Password*:</label>
-      <br>
-      <input type="password" required id="loginPassword" />
-    </div>
-    <a class="btn btn-ghost" href="#popup1">Log In</a>
-  </form>
-  <div id="popup1" class="overlay">
-    <div class="popup">
-      <h4>You allow us to have access to your location?</h4>
-      <a id="close" href="#">&times;</a>
-      <div class="contentPU">
-        <a href="../ads-module/page/page.html" class="button" id="cancel">Cancel</a>
-        <a href="../ads-module/page/page.html" class="button" id="allow">Allow</a>
-      </div>
+  <div class="topnav" id="myTopnav">
+    <div class="content-wrap">
+      <img src="../images/logo.jpg" alt="logo" class="logo">
     </div>
   </div>
+  <form id="log-in-wrap" action="../../Back/login.php" method="POST">
+    <div>
+      <label for="loginEmail">E-mail*:</label>
+      <br>
+      <input type="email" required id="loginEmail" name="loginEmail" />
+    </div>
+    <br>
+    <div>
+      <label for="loginPassword">Password*:</label>
+      <br>
+      <input type="password" required id="loginPassword" name="loginPassword" />
+    </div>
+    <button class="btn btn-ghost" type="submit" value="login">Log In</button>
+  </form>
+<!--  <div id="popup1" class="overlay">-->
+<!--    <div class="popup">-->
+<!--      <h4>You allow us to have access to your location?</h4>-->
+<!--      <a id="close" href="#">&times;</a>-->
+<!--      <div class="contentPU">-->
+<!--        <a href="../ads-module/page/page.html" class="button" id="cancel">Cancel</a>-->
+<!--        <a href="../ads-module/page/page.html" class="button" id="allow">Allow</a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
 </body>
 
 </html>
