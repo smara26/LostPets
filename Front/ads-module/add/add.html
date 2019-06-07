@@ -42,74 +42,95 @@
   <div class="formMessage">
     <h3>Let us help you find your animal! Give us some details!</h3>
   </div>
-  <form id="form-wrap" action="/form" method="POST">
+  <form id="form-wrap" action="../../../Back/add.php" method="POST" enctype="multipart/form-data">
     <div>
       <label for="formPName">Pet's Name*:</label>
       <br>
-      <input type="text" required id="formPName" />
+      <input type="text" required id="formPName" name="formPName" />
     </div>
     <br>
     <div>
       <label for="file">Choose a photo of your buddy:</label>
       <br>
-      <input type="file" name="file" id="file" />
+      <input type="file" name="file" id="file" name="formPImage[]"/>
     </div>
     <br>
     <div>
-      <label>Place where you saw him/her last time*:</label>
+      <span>Place where you saw him/her last time*:</span>
+
       <br>
-      <img id="map" src="../../images/map.png" alt="Workplace" usemap="#workmap">
-      <map name="workmap">
-        <area shape="circle" coords="291,265,24" alt="Zone1" href="#">
-        <area shape="circle" coords="418,204,14" alt="Zone2" href="#">
-        <area shape="circle" coords="337,300,44" alt="Zone3" href="#">
-        <area shape="circle" coords="125,82,137" alt="Zone4" href="#">
-        <area shape="circle" coords="535,248,125" alt="Zone5" href="#">
-        <area shape="circle" coords="427,281,7" alt="Zone6" href="#">
-      </map>
+      <label for="lastPlaceC">City:</label>
+      <input type="text" id="lastPlaceC" name="lastPlaceC" required>
+      <label for="lastPlaceN">Neighborhood</label>
+      <input type="text" id="lastPlaceN" name="lastPlaceN" required>
     </div>
     <br>
     <div>
       <label for="formSpecies">Species*:</label>
       <br>
-      <input type="text" required id="formSpecies" />
+      <input type="text" required id="formSpecies" name="formSpecies" />
     </div>
     <br>
     <div>
       <label for="formMarks">Personal marks:</label>
       <br>
-      <input type="text" id="formMarks" />
+      <input type="text" id="formMarks" name="formMarks" />
     </div>
     <br>
     <div>
-      <label for="formCoolar">Coolar's details:</label>
+      <label for="formCollar">Collar's details:</label>
       <br>
-      <input type="text" id="formCoolar" />
+      <input type="text" id="formCollar" name="formCollar" />
     </div>
     <br>
     <div>
       <label for="formReward">Reward:</label>
       <br>
-      <input type="number" id="formReward" />
+      <input type="number" id="formReward" name="formReward"/>EUROS
     </div>
     <br>
     <div>
       <label for="formPhone">Phone*:</label>
       <br>
-      <input type="number" id="formPhone" />
+      <input type="number" id="formPhone" name="formPhone"/>
     </div>
     <br>
     <div>
       <label for="formEmail">E-mail*:</label>
       <br>
-      <input type="email" required id="formEmail" />
+      <input type="email" required id="formEmail" name="formEmail"/>
+    </div>
+    <br>
+    <div>
+      <label for="dissapearanceDate">Disappearance date*:</label>
+      <br>
+      <input type="date" required id="dissapearanceDate" name="dissapearanceDate"/>
+    </div>
+    <br>
+    <div>
+    <label for="lastSeen">Last date seen*:</label>
+    <br>
+    <input type="date" required id="lastSeen" name="lastSeen"/>
+  </div>
+    <br>
+    <div>
+      <label for="moreDetails">More Details:</label>
+      <br>
+      <input type="text" required id="moreDetails" name="moreDetails"/>
+    </div>
+    <br>
+    <div>
+      <label for="owner">Owner*:</label>
+      <br>
+      <input type="text" required id="owner" name="owner"/>
     </div>
     <br>
     <div id="terms">
-      <input type="checkbox" value="terms" required id="formTerms" />
+      <input type="checkbox" value="terms" required id="formTerms" name="formTerms"/>
       <label for="formTerms">I have read and accepted the Terms & Conditions</label>
     </div>
-    <a class="button" href="../page/page.html">Add Missing Pet</a>
+    <button class="button" type="submit">Add Missing Pet</button>
+<!--    <a class="button" href="../page/page.html">Add Missing Pet</a>-->
   </form>
 </body>
 
