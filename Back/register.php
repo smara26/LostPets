@@ -7,12 +7,12 @@ if (!empty($_POST['registerFName']) && !empty($_POST['registerLName']) && !empty
 
     if (!filter_var($uname, FILTER_VALIDATE_EMAIL) || ($_POST['registerPassword'] !== $_POST['registerRepeatPassword'])) {
         echo "<script>alert('Username or password is invalid!')</script>";
-        echo "<script>location.href='register.html'</script>";
+        echo "<script>location.href='../Front/register/register.html'</script>";
 
     }
     $conn = mysqli_connect('localhost', 'root', '', 'lost_pets');
 
-    $user_check_email = "SELECT count(email) FROM user WHERE email=?";
+    $user_check_email = "SELECT count(email) FROM users WHERE email=?";
 
     $stmt2 = $conn->prepare($user_check_email);
     $stmt2->bind_param("s", $uname);
@@ -30,15 +30,16 @@ if (!empty($_POST['registerFName']) && !empty($_POST['registerLName']) && !empty
         $pass=$_POST['registerPassword'];
         $gender=$_POST['registerGender'];
         $age=$_POST['registerAge'];
-        $user_register = "INSERT INTO user (email, password, firstName,lastName,gender,age) VALUES (?,?,?,?,?,?);";
+
+        $user_register = "INSERT INTO users (email, password, firstName,lastName,gender,age) VALUES (?,?,?,?,?,?);";
 
         $stmt2 = $conn->prepare($user_register);
         $stmt2->bind_param("sssssi", $uname,$pass,$fName,$lName,$gender,$age);
         $stmt2->execute();
-        echo "<script>location.href='../login/login.html'</script>";
+        echo "<script>location.href='../Front/login/login.html'</script>";
 
     }
 
 }
-
+mysqli_close($conn);
 ?>
