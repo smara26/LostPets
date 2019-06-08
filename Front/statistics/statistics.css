@@ -1,22 +1,3 @@
-* {
-  margin: 0px;
-  padding: 0px;
-}
-
-html,
-body {
-  background-image: white;
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  background-attachment: fixed;
-  background-color: white;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 300;
-  font-size: 20px;
-  text-rendering: optimizeLegibility;
-  overflow-x: hidden;
-}
 
 #statistics {
   margin-top: 5%;
@@ -97,51 +78,208 @@ button[type]:before {
   content: url("https://img.icons8.com/small/15/000000/downloads.png");
 }
 
-.logo {
-  height: 3em;
-  width: auto;
-  float: left;
-  margin: -5px 0px 0px 3em;
-}
+/*header*/
+@media screen and (min-width: 1000px) {
+  input[type]{
+    max-width: 240px; }
 
 .topnav {
   overflow: hidden;
   background-color: #5b81a4;
-  width: 100%;
+  margin:0 5em;
 }
-
-.topnav a {
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 6px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: left;
+}
+}
+@media screen and (max-width: 1000px) and (min-device-width: 800px) {
+  input[type]{
+    max-width: 140px; }
+.topnav {
+  overflow: hidden;
+  background-color: #5b81a4;
+  margin:0 2em;
+}
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: left;
+}
+}
+@media screen and (max-width: 800px) and (min-device-width: 420px) {
+  input[type]{
+    display: none }
+.topnav {
+  overflow: hidden;
+  background-color: #5b81a4;
+  margin:0 1em;
+}
+ .topnav a{
   float: right;
-  display: block;
+  display: inline-block;
   color: #f2f2f2;
   text-align: center;
-  padding: 14px 16px;
+  padding: 12px 12px;
+  text-decoration: none;
+  font-size: 14px;
+  margin:0;
+}
+.dropdown .dropbtn {
+  font-size: 14px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 12px 12px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+.content-wrap a {
+  float: left;
+  padding:0;
+  /*margin: -5px 0px 0px 3em;*/
+
+}
+.logo{
+  height: 3em;
+  /*margin:0 5em;*/
+}
+.header-wrap {
+  background-color: #5b81a4;
+  position: sticky;
+  z-index: 0;
+}
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 12px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: left;
+}
+}
+@media screen and (max-width: 420px) {
+  input[type]{
+    display: none }
+.topnav {
+  overflow: hidden;
+  background-color: #5b81a4;
+  margin:0 0.5em;
+}
+ .topnav a{
+  float: right;
+  display: inline-block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 10px 6px;
+  text-decoration: none;
+  font-size: 12px;
+  margin:0;
+}
+.dropdown .dropbtn {
+  font-size: 12px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 10px 6px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+.content-wrap a {
+  float: left;
+  padding:0;
+}
+.logo{
+  height: 2.5em;
+}
+.header-wrap {
+  background-color: #5b81a4;
+  position: sticky;
+  z-index: 0;
+}
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 6px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: left;
+}
+}
+
+@media screen and (min-width: 800px) {
+  #statistics .stat {
+    max-width: 30%;
+    display: block;
+  }
+  .topnav a {
+  float: right;
+  display: inline-block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 15px 15px;
   text-decoration: none;
   font-size: 17px;
+  margin:0;
 }
-
-.active {
-  color: white;
+.content-wrap a {
+  float: left;
+  padding:0;
 }
-
-.topnav .icon {
-  display: none;
+.logo{
+  height: 3em;
+  
 }
-
-.dropdown {
-  float: right;
-  overflow: hidden;
+.header-wrap {
+  background-color: #5b81a4;
+  position: sticky;
+  z-index: 0;
 }
-
 .dropdown .dropbtn {
   font-size: 17px;
   border: none;
   outline: none;
   color: white;
-  padding: 14px 16px;
+  padding: 14px 14px;
   background-color: inherit;
   font-family: inherit;
   margin: 0;
+}
+}
+
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+html,
+body {
+  background-image: white;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  background-attachment: fixed;
+  background-color: white;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  margin:0;
+}
+.dropdown {
+  float: right;
+  overflow: hidden;
 }
 
 .dropdown-content {
@@ -150,17 +288,9 @@ button[type]:before {
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  z-index: 0;
 }
 
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
 
 .topnav a:hover,
 .dropdown:hover .dropbtn {
@@ -177,93 +307,22 @@ button[type]:before {
   display: block;
 }
 
-.notification {
-  color: white;
-  text-decoration: none;
-  padding: 15px 26px;
-  position: relative;
-  display: inline-block;
-  border-radius: 2px;
-}
-
-.notification:hover {
-  background: red;
-}
-
-.notification .badge {
-  position: absolute;
-  top: 1.4em;
-  right: -0.7em;
-  padding: 3px 8px;
-  border-radius: 50%;
-  background: pink;
-  color: white;
-  font-size: 12px;
-}
-
-.notification span:first-child:before {
-  content: url("https://img.icons8.com/material-sharp/15/000000/alarm.png")
-}
-
 form input {
   float: right;
-  margin: 12px;
-  border: 0.5px solid;
   box-shadow: 0px 0px 0px;
-  padding: 2px;
-  text-align: center;
+  padding: 0.5em;
+  border-radius: 5px 5px;
   color: black;
-  width: 10%;
-}
-
-.header-wrap {
-  background-color: #5b81a4;
-  height: 10.6vh;
-  position: sticky;
-  top: 0;
-  z-index: 0;
+  font-size: 17px;
+  border: none;
+  outline: none;
+  margin: 6px 7px;
+  font-family: inherit;
+  
 }
 
 .content-wrap {
   background-color: #5b81a4;
-  height: 12%;
-  max-width: 1140px;
-  margin: 0 auto;
+  height: 100%;
 }
 
-@media screen and (min-width: 300px) and (max-width: 700px) {
-  #statistics .stat {
-    width: 49%;
-    margin-right: 2%;
-  }
-
-  .stat .text {
-    flex: 1 2 auto;
-    white-space: wrap;
-  }
-
-  form[action]#searchx {
-    display: none;
-  }
-
-  .topnav a,
-  .dropdown .dropbtn {
-    float: right;
-    display: block;
-    padding: 2px 2px;
-    margin: 0px 0px;
-  }
-
-  img.logo {
-    height: 1.2em;
-    width: auto;
-    margin: 0px 0px 0px 0.5em;
-  }
-}
-
-@media screen and (min-width: 800px) {
-  #statistics .stat {
-    max-width: 30%;
-    display: block;
-  }
-}

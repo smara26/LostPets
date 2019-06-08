@@ -11,31 +11,30 @@
 </head>
 
 <body>
-  <div class="topnav" id="myTopnav">
-    <a href="../home/home.html" class="active">Log out</a>
-    <div class="dropdown">
-      <button class="dropbtn">@Name
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-        <a href="../ads-module/page/page.html">My ads</a>
-        <a href="../statistics/statistics.html">Statistics</a>
+  <header class="header-wrap">
+    <nav class="topnav">
+      <a href="../../home/home.html" class="active">Log out</a>
+      <div class="dropdown">
+        <button class="dropbtn">@Name
+          <i class="down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="../page/page.html">My ads</a>
+          <a href="../../statistics/statistics.html">Statistics</a>
+        </div>
       </div>
-    </div>
-    <a href="../ads-module/page/page.html">Announcements</a>
-    <a href="#" class="notification">
-      <span></span>
-      <span class="badge">3</span>
-    </a>
-    <form action="http://google.com" method="GET">
-      <label for="search"></label>
-      <input type="search" name="s" id="search" placeholder="Search" maxlength="256">
-    </form>
-    <div class="content-wrap">
-      <img src="../images/logo.jpg" alt="logo" class="logo">
-    </div>
-  </div>
-  </div>
+      <a href="../page/page.html">Announcements</a>
+      <a href="#" class="notification">Notif</a>
+      <form action="http://google.com" method="GET">
+        <input type="search" name="searchIn" id="searchIn" placeholder="Search">
+      </form>
+      <div class="content-wrap">
+        <a href="../../home/home.html">
+          <img src="../images/logo.jpg" alt="logo" class="logo">
+        </a>
+      </div>
+    </nav>
+  </header>
   <div id="stt">
     <div id="ads-descript">
       <h2 id="title">Statistics</h2>
