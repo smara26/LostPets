@@ -4,10 +4,10 @@
   "description": "",
   "main": "server.js",
   "directories": {
-    "doc": "docs"
+    "doc": "../docs"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "nodemon --exec babel-node server.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,17 @@
   "bugs": {
     "url": "https://github.com/smara26/LostPets/issues"
   },
-  "homepage": "https://github.com/smara26/LostPets#readme"
+  "homepage": "https://github.com/smara26/LostPets#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "bcrypt": "^3.0.6",
+    "nodemon": "^1.19.1"
+  },
+  "dependencies": {
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.8.7"
+  }
 }

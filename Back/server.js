@@ -1,13 +1,10 @@
-let http = require('http');
+import { createServer } from 'http';
+import router from './api/routes/router';
 
-let hostname = 'localhost';
-let port = 3000;
+const hostname = 'localhost';
+const port = 3000;
 
-let server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
-});
+const server = createServer(router);
 
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
