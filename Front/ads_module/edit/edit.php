@@ -10,26 +10,26 @@ session_start();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" type="text/css" href="edit.css" />
+  <link rel="stylesheet" type="text/css" href="Front/ads_module/edit/edit.css" />
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
 
 <body>
 <header class="header-wrap">
   <nav class="topnav">
-      <a href="../../../Back/logout.php" class="active">Log out</a>
+      <a href="Back/logout.php" class="active">Log out</a>
     <div class="dropdown">
       <button class="dropbtn"><?=$_SESSION['uname'];?>
         <i class="down"></i>
       </button>
       <div class="dropdown-content">
-        <a href="../ad/ad.php">My ad</a>
-        <a href="../statistics/statistics.php">Statistics</a>
-          <a href="../add/add.php">New ad</a>
+        <a href="../ad.php">My ad</a>
+        <a href="../statistics.php">Statistics</a>
+          <a href="../add.php">New ad</a>
 
       </div>
     </div>
-    <a href="../page/page.php">Announcements</a>
+    <a href="../all-ads.php">Announcements</a>
     <div class="dropdown-notification">
       <button class="notification">
         <span></span>
@@ -45,8 +45,8 @@ session_start();
       <input type="search" name="searchIn" id="searchIn" placeholder="Search">
     </form>
     <div class="content-wrap">
-      <a href="../home/home.html">
-        <img src="../../images/logo.jpg" alt="logo" class="logo">
+      <a href="../home.php">
+        <img src="Front/images/logo.jpg" alt="logo" class="logo">
       </a>
     </div>
   </nav>
@@ -56,7 +56,7 @@ session_start();
 
   <div class="lost-pet">
     <div class="principle-details">
-      <img src="../../images/charles-2.jpg" alt="Charles-The pug">
+      <img src="Front/images/charles-2.jpg" alt="Charles-The pug">
 
       <div class="first-details">
         <h2>Details about the lost pet:</h2>
@@ -109,7 +109,7 @@ session_start();
     </div>
 
     <div class="map">
-      <img id="map" src="../../images/map.png" alt="The Map">
+      <img id="map" src="Front/images/map.png" alt="The Map">
     </div>
   </div>
 

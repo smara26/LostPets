@@ -34,10 +34,10 @@ if (!empty($_POST['formPName']) && !empty($_POST['lastPlaceC']) && !empty($_POST
 if ($stmt->fetch()) {
     $owner=$last ." ". $first;}
 
-    $register_ad = "INSERT INTO ads (`name`,breed,disappearance_date,marks,collar,last_seen_place,picture,details,owner,phone,mail,reward) VALUES (?,?,?,?,?,?,?,?,?,?,?,?);";
+    $register_ad = "INSERT INTO ads (`name`,breed,disappearance_date,marks,collar,last_seen_place,picture,details,owner,phone,mail,reward,last_modify_date) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
     $stmt = $conn->prepare($register_ad);
-    $stmt->bind_param("sssssssssssi", $uname, $breed, $dissapear, $marks, $collar, $lastPlace, $image, $details, $owner, $phone, $email, $reward);
+    $stmt->bind_param("sssssssssssis", $uname, $breed, $dissapear, $marks, $collar, $lastPlace, $image, $details, $owner, $phone, $email, $reward,$lastSeen);
     $stmt->execute();
 
     $uploads_dir = "../Front/images";

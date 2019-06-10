@@ -6,7 +6,7 @@ if (!empty($_POST['loginEmail']) && !empty($_POST['loginPassword'])) {
 
     if (!filter_var($uname, FILTER_VALIDATE_EMAIL) || strlen($pass) < 6) {
         echo "<script>alert('Username or password is invalid!')</script>";
-        echo "<script>location.href='../Front/login/login.html'</script>";
+        echo "<script>location.href='../login.php'</script>";
     } else {
         session_start();
             $sql = mysqli_connect("localhost", "root", "", "lost_pets");
@@ -21,11 +21,11 @@ if (!empty($_POST['loginEmail']) && !empty($_POST['loginPassword'])) {
             if ($stmt->fetch()) {
 //                //initialization session
                 $_SESSION['uname'] = $uname;
-                header("Location:../Front/page/page.php");
+                header("Location:../all-ads.php");
 
             } else {
                 echo "<script>alert('Username or password is invalid!')</script>";
-                header("Location:../Front/login/login.html");
+                header("Location:../login.php");
             }
             mysqli_close($conn);
         }

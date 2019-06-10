@@ -1,16 +1,16 @@
 <?php
 session_start();
-
 spl_autoload_register(function ($className) {
     require_once 'Back/' . $className . '.php';
 });
 $ads = new ads();
+$name=$_SESSION['uname'];
 $conn = mysqli_connect('localhost', 'root', '', 'lost_pets');
 
-$all_ads = "select * from ads ORDER BY last_modify_date desc";
-if ($result = mysqli_query($conn, $all_ads)) {
+$all_myads = "select * from ads where mail=?";
+if ($result = mysqli_query($conn, $all_myads)) {
 if (mysqli_num_rows($result) > 0) {
-
+    echo row['breed'];
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -19,9 +19,9 @@ if (mysqli_num_rows($result) > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="Front/page/page.css"/>
+    <link rel="stylesheet" type="text/css" href="Front/personal-ads/personal-ads.css"/>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <title>Announcements</title>
+    <title>My personal ads</title>
 </head>
 
 <body>
@@ -33,7 +33,7 @@ if (mysqli_num_rows($result) > 0) {
                 <i class="down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="../ad.php">My ad</a>
+                <a href="../personal_ads.php">Personal ads</a>
                 <a href="../statistics.php">Statistics</a>
                 <a href="../add.php">New ad</a>
 
@@ -54,7 +54,7 @@ if (mysqli_num_rows($result) > 0) {
 </header>
 <div id="ads">
     <div id="ads-descript">
-        <h2 id="title">Announcements</h2>
+        <h2 id="title">My personal ads</h2>
         <p class="description">Here at petapp we love animals and we are dedicated to helping reunite lost pets with
             their
             families as quickly as possible. Since our pets are not able to speak for themselves it is very important
@@ -62,7 +62,7 @@ if (mysqli_num_rows($result) > 0) {
             when they go missing we get the word out as quickly as possible. To help we offer FREE list with all pets
             lost
             in Romania added by desperate masters. </p>
-        <div class="number"><?= $ads->adsNumber() ?> lost pets</div>
+        <div class="number"><?= $ads->adsNumberP($name) ?> lost pets</div>
     </div>
     <ul id="manyads">
         <?php while ($row = mysqli_fetch_array($result)) {?>

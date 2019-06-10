@@ -11,7 +11,7 @@ session_start();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" type="text/css" href="./add.css" />
+  <link rel="stylesheet" type="text/css" href="Front/ads_module/add/add.css" />
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   <title>Registration my ad</title>
 </head>
@@ -19,25 +19,25 @@ session_start();
 <body>
 <header class="header-wrap">
 <nav class="topnav">
-  <a href="../../../Back/logout.php" class="active">Log out</a>
+  <a href="../logout.php" class="active">Log out</a>
   <div class="dropdown">
     <button class="dropbtn"><?=$_SESSION['uname'];?>
       <i class="down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="../ad/ad.php">My ad</a>
-      <a href="../../statistics/statistics.php">Statistics</a>
-      <a href="../add/add.php">New ad</a>
+      <a href="../ad.php">My ad</a>
+      <a href="../statistics.php">Statistics</a>
+      <a href="../add.php">New ad</a>
     </div>
   </div>
-  <a href="../../page/page.php">Announcements</a>
+  <a href="../all-ads.php">Announcements</a>
   <a href="#" class="notification">Notif</a>
   <form action="http://google.com" method="GET">
     <input type="search" name="searchIn" id="searchIn" placeholder="Search">
   </form>
   <div class="content-wrap">
-    <a href="../../home/home.html">
-      <img src="../../images/logo.jpg" alt="logo" class="logo">
+    <a href="../home.php">
+      <img src="Front/images/logo.jpg" alt="logo" class="logo">
     </a>
   </div>
 </nav>
