@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,40 +11,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" type="text/css" href="add.css" />
+  <link rel="stylesheet" type="text/css" href="./add.css" />
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-  <title>Form</title>
+  <title>Registration my ad</title>
 </head>
 
 <body>
-  <header class="header-wrap">
-    <nav class="topnav">
-      <a href="../../home/home.html" class="active">Log out</a>
-      <div class="dropdown">
-        <button class="dropbtn">@Name
-          <i class="down"></i>
-        </button>
-        <div class="dropdown-content">
-          <a href="../page/page.html">My ads</a>
-          <a href="../../statistics/statistics.html">Statistics</a>
-        </div>
-      </div>
-      <a href="../page/page.html">Announcements</a>
-      <a href="#" class="notification">
-        <span></span>
-        <span class="badge">3</span>
-      </a>
-      <form action="http://google.com" method="GET">
-        <label for="searchIn"></label>
-        <input type="search" name="q" id="searchIn" placeholder="Search" maxlength="256">
-      </form>
-      <div class="content-wrap">
-        <a href="../../home/home.html">
-          <img src="../../images/logo.jpg" alt="logo" class="logo">
-        </a>
-      </div>
-    </nav>
-  </header>
+<header class="header-wrap">
+<nav class="topnav">
+  <a href="../../../Back/logout.php" class="active">Log out</a>
+  <div class="dropdown">
+    <button class="dropbtn"><?=$_SESSION['uname'];?>
+      <i class="down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="../ad/ad.php">My ad</a>
+      <a href="../../statistics/statistics.php">Statistics</a>
+      <a href="../add/add.php">New ad</a>
+    </div>
+  </div>
+  <a href="../../page/page.php">Announcements</a>
+  <a href="#" class="notification">Notif</a>
+  <form action="http://google.com" method="GET">
+    <input type="search" name="searchIn" id="searchIn" placeholder="Search">
+  </form>
+  <div class="content-wrap">
+    <a href="../../home/home.html">
+      <img src="../../images/logo.jpg" alt="logo" class="logo">
+    </a>
+  </div>
+</nav>
+</header>
   <div class="formMessage">
     <h3>Let us help you find your animal! Give us some details!</h3>
   </div>
@@ -86,19 +89,13 @@
     <div>
       <label for="formReward">Reward:</label>
       <br>
-      <input type="number" id="formReward" name="formReward"/>EUROS
+      <input type="number" id="formReward" name="formReward"/>€
     </div>
     <br>
     <div>
       <label for="formPhone">Phone*:</label>
       <br>
-      <input type="number" id="formPhone" name="formPhone"/>
-    </div>
-    <br>
-    <div>
-      <label for="formEmail">E-mail*:</label>
-      <br>
-      <input type="email" required id="formEmail" name="formEmail"/>
+      <input type="number" id="formPhone" name="formPhone" required/>
     </div>
     <br>
     <div>
@@ -117,12 +114,6 @@
       <label for="moreDetails">More Details:</label>
       <br>
       <input type="text" id="moreDetails" name="moreDetails"/>
-    </div>
-    <br>
-    <div>
-      <label for="owner">Owner*:</label>
-      <br>
-      <input type="text" required id="owner" name="owner"/>
     </div>
     <br>
     <div id="terms">

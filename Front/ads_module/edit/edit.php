@@ -1,8 +1,12 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>LostPets</title>
+  <title>Edit your ad</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -11,37 +15,44 @@
 </head>
 
 <body>
-  <div class="topnav" id="myTopnav">
-    <a href="../../home/home.html" class="active">Log out</a>
+<header class="header-wrap">
+  <nav class="topnav">
+      <a href="../../../Back/logout.php" class="active">Log out</a>
     <div class="dropdown">
-      <button class="dropbtn">@Name
-        <i class="fa fa-caret-down"></i>
+      <button class="dropbtn"><?=$_SESSION['uname'];?>
+        <i class="down"></i>
       </button>
       <div class="dropdown-content">
-        <a href="../page/page.html">My ads</a>
-        <a href="../../statistics/statistics.html">Statistics</a>
+        <a href="../ad/ad.php">My ad</a>
+        <a href="../statistics/statistics.php">Statistics</a>
+          <a href="../add/add.php">New ad</a>
+
       </div>
     </div>
-    <a href="../page/page.html">Announcements</a>
+    <a href="../page/page.php">Announcements</a>
     <div class="dropdown-notification">
       <button class="notification">
-            <span></span>
-            <span class="badge">3</span>
-       </button>
+        <span></span>
+        <span class="badge">3</span>
+      </button>
       <div class="dropdown-content-notification">
-          <a href="#">A new lost pet is near your area!</a>
-          <a href="#">John Mayer has just seen your pet recently.</a>
-          <a href="#">Maria Petrei has just seen your pet recently.</a>
+        <a href="#">A new lost pet is near your area!</a>
+        <a href="#">John Mayer has just seen your pet recently.</a>
+        <a href="#">Maria Petrei has just seen your pet recently.</a>
       </div>
     </div>
     <form action="http://google.com" method="GET">
-      <label for="search"></label>
-      <input type="search" name="s" id="search" placeholder="Search" maxlength="256">
+      <input type="search" name="searchIn" id="searchIn" placeholder="Search">
     </form>
     <div class="content-wrap">
-      <img src="../../images/logo.png" alt="logo" class="logo">
+      <a href="../home/home.html">
+        <img src="../../images/logo.jpg" alt="logo" class="logo">
+      </a>
     </div>
-  </div>
+  </nav>
+</header>
+
+
 
   <div class="lost-pet">
     <div class="principle-details">
@@ -109,8 +120,8 @@
       <h4>Do you want to save the changes?</h4>
       <a id="close" href="#">&times;</a>
       <div class="contentPU">
-        <a href="../ad/ad.html" class="button" id="cancel">Cancel</a>
-        <a href="../ad/ad.html" class="button" id="allow">Save</a>
+        <a href="../ad/ad.php" class="button" id="cancel">Cancel</a>
+        <a href="../ad/ad.php" class="button" id="allow">Save</a>
       </div>
     </div>
   </div>

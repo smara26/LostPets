@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_POST['loginEmail']) && isset($_POST['loginPassword'])) {
+if (!empty($_POST['loginEmail']) && !empty($_POST['loginPassword'])) {
     $uname = $_POST['loginEmail'];
     $pass = $_POST['loginPassword'];
 
@@ -8,29 +8,27 @@ if (isset($_POST['loginEmail']) && isset($_POST['loginPassword'])) {
         echo "<script>alert('Username or password is invalid!')</script>";
         echo "<script>location.href='../Front/login/login.html'</script>";
     } else {
-
         session_start();
-        if (isset($_SESSION['uname'])) {
-            $conn = mysqli_connect("localhost", "root", "", "lost_pets");
+            $sql = mysqli_connect("localhost", "root", "", "lost_pets");
             $name = "SELECT lastName,firstName from users WHERE email=? AND password=?";
 
-            $stmt2 = $conn->prepare($name);
-            $stmt2->bind_param("ss", $uname, $pass);
-            $stmt2->execute();
-            $stmt2->bind_result($lastName, $firstName);
-            $stmt2->store_result();
+            $stmt = $sql->prepare($name);
+            $stmt->bind_param("ss", $uname, $pass);
+            $stmt->execute();
+            $stmt->bind_result($lastName, $firstName);
+            $stmt->store_result();
 
-            if ($stmt2->fetch()) {
+            if ($stmt->fetch()) {
 //                //initialization session
                 $_SESSION['uname'] = $uname;
-//                header("location:welcome.php");
-                echo "<p>Welcome, " . $firstName . " " . $lastName . " !</p>";
-                echo "<a href='../Front/home/home.html'><input type='button' value='Log out' name='logout'></a>";
+                header("Location:../Front/page/page.php");
+
             } else {
                 echo "<script>alert('Username or password is invalid!')</script>";
-                echo "<script>location.href='../Front/login/login.html'</script>";
+                header("Location:../Front/login/login.html");
             }
             mysqli_close($conn);
         }
-    }
+
+
 }

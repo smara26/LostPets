@@ -1,49 +1,62 @@
+<?php
+session_start();
+
+spl_autoload_register(function ($className) {
+    require_once '../../Back/' . $className . '.php';
+});
+$ads = new ads();
+$number = $ads->adsNumber();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
-  <title>Announcements</title>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" type="text/css" href="page.css" />
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-  <link rel="icon" href="../../images/logo.jpg" style="width:5px;">
+  <title>Announcements</title>
 </head>
 
 <body>
-  <div class="topnav" id="myTopnav">
-    <a href="../../home/home.html" class="active">Log out</a>
-    <div class="dropdown">
-      <button class="dropbtn">@Name
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-        <a href="../page/page.html">My ads</a>
-        <a href="../../statistics/statistics.html">Statistics</a>
-      </div>
-    </div>
-    <a href="../page/page.html">Announcements</a>
-    <a href="#" class="notification">
-      <span></span>
-      <span class="badge">3</span>
-    </a>
-    <form action="http://google.com" method="GET" id="searchx">
-      <label for="search"></label>
-      <input type="search" name="s" id="search" placeholder="Search" maxlength="256">
-    </form>
-    <div class="content-wrap">
-      <img src="../../images/logo.jpg" alt="logo" class="logo">
+<header class="header-wrap">
+<nav class="topnav">
+    <a href="../../Back/logout.php" class="active">Log out</a>
+  <div class="dropdown">
+    <button class="dropbtn"><?=$_SESSION['uname']?>
+      <i class="down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="../ads_module/ad/ad.php">My ad</a>
+      <a href="../statistics/statistics.php">Statistics</a>
+        <a href="../ads_module/add/add.php">New ad</a>
+
     </div>
   </div>
+  <a href="../page/page.php">Announcements</a>
+  <a href="#" class="notification">Notif</a>
+  <form action="http://google.com" method="GET">
+    <input type="search" name="searchIn" id="searchIn" placeholder="Search">
+  </form>
+  <div class="content-wrap">
+    <a href="../home/home.html">
+      <img src="../images/logo.jpg" alt="logo" class="logo">
+    </a>
+  </div>
+</nav>
+
+</header>
   <div id="ads">
     <div id="ads-descript">
-      <h2 id="title">My ads</h2>
+      <h2 id="title">Announcements</h2>
       <p class="description">Here at petapp we love animals and we are dedicated to helping reunite lost pets with their
         families as quickly as possible. Since our pets are not able to speak for themselves it is very important that
         when they go missing we get the word out as quickly as possible. To help we offer FREE list with all pets lost
         in Romania added by desperate masters. </p>
-      <div class="number"> 9 lost pets</div>
+      <div class="number"><?=$number;?> lost pets</div>
     </div>
     <ul id="manyads">
       <li class="ad">

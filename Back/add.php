@@ -1,5 +1,6 @@
 <?php
-if (!empty($_POST['formPName']) && !empty($_POST['lastPlaceC']) && !empty($_POST['dissapearanceDate']) && !empty($_POST['lastPlaceN']) && !empty($_POST['formSpecies']) && !empty($_POST['formPhone']) && !empty($_POST['formEmail']) && !empty($_POST['formTerms'])) {
+session_start();
+if (!empty($_POST['formPName']) && !empty($_POST['lastPlaceC']) && !empty($_POST['dissapearanceDate']) && !empty($_POST['lastPlaceN']) && !empty($_POST['formSpecies']) && !empty($_POST['formPhone'])  && !empty($_POST['formTerms'])) {
     $uname = $_POST['formPName'];
     $image = $_FILES['formPImage']['name'][0];
     $lastPlace = $_POST['lastPlaceC'] . " " . $_POST['lastPlaceN'];
@@ -8,14 +9,31 @@ if (!empty($_POST['formPName']) && !empty($_POST['lastPlaceC']) && !empty($_POST
     $collar = $_POST['formCollar'];
     $reward = $_POST['formReward'];
     $phone = $_POST['formPhone'];
-    $email = $_POST['formEmail'];
+    if (strlen($phone)!=10){
+        echo "<script>alert('Invalid phone!')</script>";
+        echo "<script>location.href='../Front/ads_module/add/add.php'</script>";
+    }
+    $email = $_SESSION['uname'];
     $dissapear = $_POST['dissapearanceDate'];
     $lastSeen = $_POST['lastSeen'];
     $details = $_POST['moreDetails'];
-    $owner = $_POST['owner'];
+    $current_date=date("Y-m-d");
 
-
+    if($current_date<$dissapear){
+        echo "<script>alert('Invalid date!')</script>";
+        echo "<script>location.href='../Front/ads_module/add/add.php'</script>";
+    }
+    $username=$_SESSION['uname'];
     $conn = mysqli_connect('localhost', 'root', '', 'lost_pets');
+    $check_admin="SELECT firstName,lastName from users where email=?";
+    $stmt = $conn->prepare($check_admin);
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $stmt->bind_result($last, $first);
+    $stmt->store_result();
+if ($stmt->fetch()) {
+    $owner=$last ." ". $first;}
+
     $register_ad = "INSERT INTO ads (`name`,breed,disappearance_date,marks,collar,last_seen_place,picture,details,owner,phone,mail,reward) VALUES (?,?,?,?,?,?,?,?,?,?,?,?);";
 
     $stmt = $conn->prepare($register_ad);
