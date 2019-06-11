@@ -58,7 +58,10 @@ session_start();
         <div class="types">
           <button type="submit" name="pdf">PDF</button>
           <button type="submit" name="csv">CSV</button>
-          <button type="submit" name="html">HTML</button>
+            <form action="../Back/statisticscase.php" method="post">
+
+            <button type="submit" name="html">HTML</button>
+            </form>
         </div>
       </li>
       <li class="stat">
@@ -71,7 +74,10 @@ session_start();
         <div class="types">
           <button type="submit" name="pdf">PDF</button>
           <button type="submit" name="csv">CSV</button>
-          <button type="submit" name="html">HTML</button>
+            <form action="../Back/statisticsfound.php" method="post">
+
+            <button type="submit" name="html">HTML</button>
+            </form>
         </div>
       </li>
       <li class="stat">
@@ -84,7 +90,10 @@ session_start();
         <div class="types">
           <button type="submit" name="pdf">PDF</button>
           <button type="submit" name="csv">CSV</button>
-          <button type="submit" name="html">HTML</button>
+            <form action="../Back/statisticsplace.php" method="post">
+
+            <button type="submit" name="html">HTML</button>
+            </form>
         </div>
       </li>
       <li class="stat">
@@ -97,7 +106,10 @@ session_start();
         <div class="types">
           <button type="submit" name="pdf" value="pdf">PDF</button>
           <button type="submit" name="csv" value="csv">CSV</button>
-          <button type="submit" name="html" value="html">HTML</button>
+            <form action="../Back/statisticsreward.php" method="post">
+
+            <button type="submit" name="html" value="html">HTML</button>
+            </form>
         </div>
       </li>
     </ul>
