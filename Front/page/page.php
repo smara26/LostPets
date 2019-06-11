@@ -42,7 +42,7 @@ if (mysqli_num_rows($result) > 0) {
         <a href="../all-ads.php">Announcements</a>
         <a href="#" class="notification">Notif</a>
         <form action="http://google.com" method="GET">
-            <input type="search" name="searchIn" id="searchIn" placeholder="Search">
+            <input type="search" name="searchIn" id="searchIn" placeholder="Search" onkeyup="getFiltered()">
         </form>
         <div class="content-wrap">
             <a href="../home.php">
