@@ -30,6 +30,13 @@ if ($stmt->fetch()) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="Front/ads_module/edit/edit.css"/>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+    integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+    crossorigin=""></script>
+    <link rel="icon" href="../../images/logo.jpg" style="width:5px;">
 </head>
 
 <body>
@@ -96,10 +103,36 @@ if ($admin == $mail) {
             <span>Place where you saw him/her last time*:</span>
 
             <br>
-            <label for="lastPlaceC">City:</label>
-            <input type="text" id="lastPlaceC" name="lastPlaceC" required>
-            <label for="lastPlaceN">Neighborhood</label>
-            <input type="text" id="lastPlaceN" name="lastPlaceN" required>
+            <div id="mapdiv"></div>
+            <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+            <script>
+                let position = [];
+                map = L.map('mapdiv').setView(position, 13);
+
+                L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic21hcmEwNyIsImEiOiJjandveDV4N3AwYTBnNDlxaWFuNWgyaTlnIn0.am9BJtDWhxI0ScNEotpthw', {
+                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                    maxZoom: 18,
+                    id: 'mapbox.streets',
+                    accessToken: 'pk.eyJ1Ijoic21hcmEwNyIsImEiOiJjandveDV4N3AwYTBnNDlxaWFuNWgyaTlnIn0.am9BJtDWhxI0ScNEotpthw'
+                }).addTo(map);
+
+                var marker = L.marker(position).addTo(map);
+
+                map.on('click', event => {
+                    //alert("You clicked the map at " + event.latlng);
+                    marker.setLatLng(event.latlng);
+                });
+
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(coordinates => {
+                    const coords = coordinates.coords;
+                    position = [coords.latitude, coords.longitude];
+
+                    map.setView(position, 13);
+                    marker.setLatLng(position);
+                });
+                }
+            </script>
         </div>
         <br>
         <div>
@@ -164,7 +197,6 @@ if ($admin == $mail) {
             <label for="formTerms">I have read and accepted the Terms & Conditions</label>
         </div>
         <button class="button" type="submit">Edit Your Announce</button>
-        <!--    <a class="button" href="../page/page.html">Add Missing Pet</a>-->
     </form>
 <?php
 } else { ?>
@@ -219,24 +251,29 @@ if ($admin == $mail) {
                 </div>
             </div>
 
-            <div class="map">
-                <img id="map" src="Front/images/map.png" alt="The Map">
-            </div>
+            <div id="mapdiv"></div>
+            <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+            <script>
+                let position = [];
+                map = L.map('mapdiv').setView(position, 13);
+
+                L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic21hcmEwNyIsImEiOiJjandveDV4N3AwYTBnNDlxaWFuNWgyaTlnIn0.am9BJtDWhxI0ScNEotpthw', {
+                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                    maxZoom: 18,
+                    id: 'mapbox.streets',
+                    accessToken: 'pk.eyJ1Ijoic21hcmEwNyIsImEiOiJjandveDV4N3AwYTBnNDlxaWFuNWgyaTlnIn0.am9BJtDWhxI0ScNEotpthw'
+                }).addTo(map);
+
+                var marker = L.marker(position).addTo(map);
+
+                map.on('click', event => {
+                    //alert("You clicked the map at " + event.latlng);
+                    marker.setLatLng(event.latlng);
+                });
+            </script>
         </div>
     </div>
 <?php } ?>
-<!--  <a class="btn btn-ghost" href="#popup1">Save Changes</a>-->
-<!---->
-<!--  <div id="popup1" class="overlay">-->
-<!--    <div class="popup">-->
-<!--      <h4>Do you want to save the changes?</h4>-->
-<!--      <a id="close" href="#">&times;</a>-->
-<!--      <div class="contentPU">-->
-<!--        <a href="../ad/ad.php" class="button" id="cancel">Cancel</a>-->
-<!--        <a href="../ad/ad.php" class="button" id="allow">Save</a>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
 </body>
 
 </html>

@@ -109,6 +109,16 @@ if (mysqli_num_rows($result) > 0) {
 
     ?>
 </div>
+<script>
+    let zona = 0.045;
+
+    if (navigator.geolocation) {
+        
+        navigator.geolocation.getCurrentPosition(coordinates => {
+        const coords = coordinates.coords;
+    });
+    }
+</script>
 
 </body>
 

@@ -13,28 +13,25 @@ body {
   height: 100vh;
   background-attachment: fixed;
   color: #344a5f;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway', sans-serif; 
   font-weight: 300;
-  font-size: 15px;
-  text-rendering: optimizeLegibility;
+  font-size: 20px;
+  text-rendering: optimizeLegibility; 
   overflow-x: hidden;
-
 }
 
+.topnav{
+  background-color:#5b81a4;
+  height: 12%;
+}
+.content-wrap {
+  background-color:#5b81a4;
+  height: 12%;
+  max-width: 100%;
+  margin: 0 auto; 
+}
 
-/*.header-wrap {*/
-/*  background-color: #5b81a4;*/
-/*  height: 12%;*/
-/*}*/
-
-/*.content-wrap {*/
-/*  background-color: #5b81a4;*/
-/*  height: 12%;*/
-/*  max-width: 100%;*/
-/*  margin: 0 auto;*/
-/*}*/
-
-#register-wrap {
+#register-wrap{
   display: block;
   font-size: 100%;
   height: 88%;
@@ -44,78 +41,42 @@ body {
   padding-top: 5%;
   text-align: center;
 }
-
-input {
+input{
   height: 4vh;
   width: 50%;
   border-radius: 4px;
 }
-
-/*.logo {*/
-/*  height: 99px;*/
-/*  width: auto;*/
-/*  float: left;*/
-/*  padding-left: 10%;*/
-/*}*/
-form{
-  margin:2em;
+.logo {
+  height: 99px; 
+  width: auto;
+  float: left;
+  padding-left: 10%;
 }
-#registerGender {
+#registerGender{
   height: 4vh;
   border-radius: 4px;
 }
-
-/*#terms {*/
-/*  text-align: right;*/
-/*}*/
-
-#registerTerms {
+#terms{
+  text-align: right;
+}
+#registerTerms{
   width: 4%;
 }
-
-.buttonR {
+.buttonR{
   display: inline-block;
   padding: 10px 30px;
   font-weight: 300;
   text-decoration: none;
   border-radius: 4%;
-  transition: background-color 0.2s, border 0.2s, color 0.7s;
+  transition: background-color 0.2s, border 0.2s, color 0.7s; 
   border: 2px solid #fd6f68;
   background-color: transparent;
   color: #fd6f68;
   margin-left: 18vh;
   margin-top: 4vh;
 }
-
-.button {
-  display: inline-block;
-  padding: 10px 30px;
-  font-weight: 300;
-  text-decoration: none;
-  border-radius: 4%;
-  transition: background-color 0.2s, border 0.2s, color 0.7s;
-  border: 2px solid #fd6f68;
-  background-color: transparent;
-  color: #fd6f68;
-  margin-top: 4vh;
-  margin-left: 2vh;
-}
-
-.button:link,
-.button:visited {
-  border: 2px solid #fd6f68;
-  color: #fd6f68;
-}
-
-.button:hover,
-.button:active {
-  background-color: #fe908b;
-  border: 2px solid #fd6f68;
-  color: #fff;
-}
-
-.buttonR:link,
-.buttonR:visited {
+.buttonR:link, 
+.buttonR:visited{
   border: 2px solid #fd6f68;
   color: #fd6f68;
 }
@@ -126,259 +87,99 @@ form{
   border: 2px solid #fd6f68;
   color: #fff;
 }
-
-.overlay {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.7);
-  transition: opacity 500ms;
-  visibility: hidden;
-  opacity: 0;
-}
-
-.overlay:target {
-  visibility: visible;
-  opacity: 1;
-}
-
-.popup {
-  margin: 70px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 5px;
-  width: 30%;
-  position: relative;
-  transition: all 0.10s ease-in-out;
-}
-
-.popup h4 {
-  margin-top: 0;
-  color: #344a5f;
-  font-family: 'Raleway', sans-serif;
-  font-size: 15px;
-}
-
-.popup .contentPU {
-  max-height: 30%;
-  overflow: auto;
-}
-
-#close {
-  position: absolute;
-  top: 8px;
-  right: 30px;
-  transition: all 200ms;
-  font-size: 30px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #344a5f;
-}
-
-#close:hover {
-  color: #fe908b;
-}
-
-@media only screen and (max-width:1024px) {
-  /*.header-wrap {*/
-  /*  height: 9%;*/
-  /*}*/
-
-  /*.logo {*/
-  /*  height: 125px;*/
-  /*}*/
-
-  #register-wrap {
-    padding-left: 0;
-    padding-right: 0;
-    font-size: 20px;
+@media only screen and (max-width:1024px){
+  .topnav{
+      height: 9%;
   }
-
-  #registerT {
-    margin-right: 5%;
+  .logo{
+      height: 125px;
   }
-
-  .buttonR:link,
-  .buttonR:visited {
-    background-color: #fe908b;
-    color: #fff;
+  #register-wrap{
+      padding-left: 0;
+      padding-right: 0;
+      font-size: 20px;
   }
-
-  input {
-    height: 3vh;
+  #registerT{
+      margin-right: 5%;
   }
-
-  #registerGender {
-    height: 3vh;
+  .buttonR:link, .buttonR:visited{
+      background-color: #fe908b;
+      color: #fff;
   }
-
-  #formTerms {
-    width: 2%;
+  input{
+      height: 3vh;
   }
-
-  .popup h4 {
-    padding-top: 15%;
+  #registerGender{
+      height: 3vh;
   }
-
-  .button:link,
-  .button:visited {
-    background-color: #fe908b;
-    color: #fff;
-    padding: 3px 7px;
-    font-size: 15px;
+  #formTerms{
+      width: 2%;
   }
 }
 
-@media only screen and (max-width:768px) {
-  .header-wrap {
-    height: 9%;
+@media only screen and (max-width:768px){
+  .topnav{
+      height: 9%;
   }
-
-  /*.logo {*/
-  /*  height: 92px;*/
-  /*}*/
-}
-
-@media only screen and (max-width:415px) {
-  .header-wrap {
-    height: 50px;
-  }
-
-  /*.logo {*/
-  /*  height: 51px;*/
-  /*}*/
-
-  #register-wrap {
-    padding-left: 0;
-    padding-right: 0;
-    font-size: 12px;
-  }
-
-  .buttonR:link,
-  .buttonR:visited {
-    padding: 3px 7px;
-    border: 1.5px solid #fd6f68;
-  }
-
-  .input {
-    height: 3vh;
-  }
-
-  .popup {
-    width: 70%;
-    font-size: 15px;
-  }
-
-  .popup h4 {
-    font-size: 10px;
-  }
-
-  .popup .button {
-    font-size: 10px;
+  .logo{
+      height: 92px;
   }
 }
-
-@media only screen and (max-width:376px) {
-  .logo {
-    height: 50px;
+@media only screen and (max-width:415px){
+  .topnav{
+      height: 50px;
   }
-
-  .header-wrap {
-    height: 50px;
+  .logo{
+      height: 51px;
   }
-
-  #register-wrap {
-    padding-left: 0;
-    padding-right: 0;
-    font-size: 10px;
+  #register-wrap{
+      padding-left: 0;
+      padding-right: 0;
+      font-size: 12px;
   }
-
-  .button {
-    padding: 3px 6px;
+  .buttonR:link, .buttonR:visited{
+      padding: 3px 7px;
+      border: 1.5px solid #fd6f68;
+  } 
+  .input{
+      height: 3vh;
   }
-
-  .input {
-    height: 3vh;
+}
+@media only screen and (max-width:376px){
+  .logo{
+      height: 50px;
   }
-
-  #registerGender {
-    height: 3vh;
+  .topnav{
+      height: 50px;
+  }
+  #register-wrap{
+      padding-left: 0;
+      padding-right: 0;
+      font-size: 10px;
+  }
+  .input{
+      height: 3vh;
+  }
+  #registerGender{
+      height: 3vh;
   }
 }
 
-@media only screen and (max-width:360px) {
-  .header-wrap {
-    height: 7%;
+@media only screen and (max-width:360px){
+  .topnav{
+      height: 7%;
   }
-
-  .logo {
-    height: 45px;
-  }
-}
-
-@media only screen and (max-width:320px) {
-  .logo {
-    height: 40px;
-  }
-
-  #register-wrap {
-    padding-left: 0;
-    padding-right: 0;
-    font-size: 10px;
-  }
-
-  .button {
-    border: 1.5px solid #fd6f68;
+  .logo{
+      height: 45px;
   }
 }
-
-.logo {
-  height: 4em;
-  width: auto;
-  float: left;
-  margin: -5px 0px 0px 3em;
-}
-
-.topnav {
-  overflow: hidden;
-  background-color: #5b81a4;
-  width: 100%;
-}
-
-.topnav a {
-  float: right;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-
-
-.content-wrap {
-  background-color: #5b81a4;
-  height: 12%;
-  max-width: 1140px;
-  margin: 0 auto;
-}
-
-@media screen and (min-width: 300px) and (max-width: 700px) {
-
-
-  .topnav a {
-    float: right;
-    display: block;
-    padding: 2px 2px;
-    margin: 0px 0px;
+@media only screen and (max-width:320px){
+  .logo{
+      height: 40px;
   }
-
-  img.logo {
-    height: 1.2em;
-    width: auto;
-    margin: 0px 0px 0px 0.5em;
+  #register-wrap{
+      padding-left: 0;
+      padding-right: 0;
+      font-size: 10px;
   }
 }
