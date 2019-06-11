@@ -27,7 +27,7 @@ if (mysqli_num_rows($result) > 0) {
 <body>
 <header class="header-wrap">
     <nav class="topnav">
-        <a href="../../Back/logout.php" class="active">Log out</a>
+        <a href="../Back/logout.php" class="active">Log out</a>
         <div class="dropdown">
             <button class="dropbtn"><?= $_SESSION['uname'] ?>
                 <i class="down"></i>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+$uid=$_SESSION['uname'];
 $conn = mysqli_connect('localhost', 'root', '', 'lost_pets');
 
 $url = explode("id=",$_SERVER['REQUEST_URI']);
@@ -21,6 +21,9 @@ if ($stmt->fetch()) {
     $image='Front/images/'.$picture;
 }
 $urledit='../edit.php?id='.$id;
+$urldel='../delete.php?id='.$id;
+
+
 ?>
 
 <!DOCTYPE html>
@@ -119,5 +122,18 @@ $urledit='../edit.php?id='.$id;
 
 </div>
 <a class="btn btn-ghost" href="<?=$urledit;?>">Edit Ad</a>
+
+<?php
+if($mail==$uid) {
+    ?>
+    <form action="delete-ad.php">
+        <a class="btn btn-ghost" href="<?=$urldel;?>">Delete my ad</a>
+        
+    </form>
+
+
+    <?php
+}?>
+
 </body>
 </html>

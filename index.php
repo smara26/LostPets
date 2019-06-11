@@ -35,4 +35,10 @@ switch ($url[0]) {
     case 'personal-ads':
         require 'Front/personal_ads/personal-ads.php';
         break;
+    case 'delete.php':
+        require 'Back/delete-ad.php';
+        break;
+    default:
+        require 'Front/home/home.html';
+        break;
 }

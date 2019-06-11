@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-echo 'da';
+
 $name = $_SESSION['uname'];
 $conn = mysqli_connect('localhost', 'root', '', 'lost_pets');
 

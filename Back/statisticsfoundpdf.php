@@ -15,11 +15,11 @@ $sql = "SELECT * FROM ads where last_modify_date between '" . $first_day . "' an
 $result = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
     $namearr[] = $row['name'];
-    $rewardarr[] = $row['reward'];
+    $foundarr[]=$row['found'];
 
 }
 $nm_array = json_encode($namearr);
-$rw_array = json_encode($rewardarr);
+$fd_array = json_encode($foundarr);
 
 
 ?>
@@ -41,7 +41,9 @@ $rw_array = json_encode($rewardarr);
 
 </div>
 
-
+<button type="button" id="download-pdf" >
+    Download PDF
+</button>
 
 <script type="text/javascript">
     let myChart1 = document.getElementById('myChart1').getContext('2d');
@@ -51,8 +53,8 @@ $rw_array = json_encode($rewardarr);
         data: {
             labels: <?=$nm_array;?>,
             datasets: [{
-                label: 'Rewards',
-                data: <?=$rw_array;?>,
+                label: 'Recovering lost pets',
+                data: <?=$fd_array;?>,
                 backgroundColor: [
                     'white', 'pink', 'red', 'blue', 'black', 'green', 'orange'
                 ],
@@ -63,6 +65,20 @@ $rw_array = json_encode($rewardarr);
         options: {}
     });
 
+    document.getElementById('download-pdf').addEventListener("click", downloadPDF);
+
+    function downloadPDF() {
+        var canvas = document.querySelector('#myChart1');
+        //creates image
+        var canvasImg = canvas.toDataURL("image/jpeg", 1.0);
+
+        //creates PDF from img
+        var doc = new jsPDF('landscape');
+        doc.setFontSize(20);
+        doc.text(15, 15, "Cool Chart");
+        doc.addImage(canvasImg, 'JPEG', 10, 10, 280, 150 );
+        doc.save('found.pdf');
+    }
 
 
 

@@ -17,7 +17,7 @@ session_start();
 <body>
   <header class="header-wrap">
     <nav class="topnav">
-        <a href="../../Back/logout.php" class="active">Log out</a>
+        <a href="../Back/logout.php" class="active">Log out</a>
       <div class="dropdown">
         <button class="dropbtn"><?=$_SESSION['uname'];?>
           <i class="down"></i>
@@ -56,11 +56,14 @@ session_start();
           <p></p>
         </div>
         <div class="types">
-          <button type="submit" name="pdf">PDF</button>
-          <button type="submit" name="csv">CSV</button>
+            <form action="../Back/statisticscasepdf.php" method="post">
+                <button type="submit" name="pdf" value="pdf">PDF</button>
+            </form>
+            <form action="../Back/statisticscasecsv.php" method="post">
+                <button type="submit" name="csv" value="csv">CSV</button>
+            </form>
             <form action="../Back/statisticscase.php" method="post">
-
-            <button type="submit" name="html">HTML</button>
+                <button type="submit" name="html" value="html">HTML</button>
             </form>
         </div>
       </li>
@@ -72,11 +75,14 @@ session_start();
           <p></p>
         </div>
         <div class="types">
-          <button type="submit" name="pdf">PDF</button>
-          <button type="submit" name="csv">CSV</button>
+            <form action="../Back/statisticsfoundpdf.php" method="post">
+                <button type="submit" name="pdf" value="pdf">PDF</button>
+            </form>
+            <form action="../Back/statisticsfoundcsv.php" method="post">
+                <button type="submit" name="csv" value="csv">CSV</button>
+            </form>
             <form action="../Back/statisticsfound.php" method="post">
-
-            <button type="submit" name="html">HTML</button>
+                <button type="submit" name="html" value="html">HTML</button>
             </form>
         </div>
       </li>
@@ -88,11 +94,14 @@ session_start();
           <p></p>
         </div>
         <div class="types">
-          <button type="submit" name="pdf">PDF</button>
-          <button type="submit" name="csv">CSV</button>
+            <form action="../Back/statisticsplacepdf.php" method="post">
+                <button type="submit" name="pdf" value="pdf">PDF</button>
+            </form>
+            <form action="../Back/statisticsplacecsv.php" method="post">
+                <button type="submit" name="csv" value="csv">CSV</button>
+            </form>
             <form action="../Back/statisticsplace.php" method="post">
-
-            <button type="submit" name="html">HTML</button>
+                <button type="submit" name="html" value="html">HTML</button>
             </form>
         </div>
       </li>
@@ -104,11 +113,14 @@ session_start();
           <p></p>
         </div>
         <div class="types">
-          <button type="submit" name="pdf" value="pdf">PDF</button>
-          <button type="submit" name="csv" value="csv">CSV</button>
+            <form action="../Back/statisticsrewardpdf.php" method="post">
+                <button type="submit" name="pdf" value="pdf">PDF</button>
+            </form>
+            <form action="../Back/statisticsrewardcsv.php" method="post">
+                <button type="submit" name="csv" value="csv">CSV</button>
+            </form>
             <form action="../Back/statisticsreward.php" method="post">
-
-            <button type="submit" name="html" value="html">HTML</button>
+                <button type="submit" name="html" value="html">HTML</button>
             </form>
         </div>
       </li>
