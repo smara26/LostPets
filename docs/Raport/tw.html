@@ -75,12 +75,12 @@
 
 			<p>
 
-				Pentru implementare proiectului vom folosi HyperText Transfer Protocol bazat pe stiva de protocoale TCP/IP , un protocol fiabil de tip cerere/raspuns ce foloseste ca port standard de acces, portul 80. Focalizat asupra performantei, HTTP/2.0 este dezvoltat din varianta 1.1 , fiind standardizat si introdus pe majoritatea browserelor in anul 2015. 
+				Pentru implementare proiectului am folosit HyperText Transfer Protocol bazat pe stiva de protocoale TCP/IP , un protocol fiabil de tip cerere/raspuns. Focalizat asupra performantei, HTTP/2.0 este dezvoltat din varianta 1.1 , fiind standardizat si introdus pe majoritatea browserelor in anul 2015. 
 				Pentru stilizarea experientei utilizatorului vom folosi Cascading Style Sheets cu ultima sa versiune.
-				O altă tehnologie utilizată vor fi bazele de date MySQL . Acestea reprezină o modalitate de stocare a unor informații și date pe un suport extern ( un dispozitiv de stocare), cu posibilitatea extinderii ușoare și a regăsirii rapide a acestora. Tot o baza de date dar geografica este OpenStreetMap care va pastra locatia animalului.
-				Interfata Web va consta din incarcarea in paginile HTML a elementelor de design din CSS , sustinute de arhitectura in limbajul PHP.
+				O altă tehnologie utilizată vor fi bazele de date MySQL . Acestea reprezintă o modalitate de stocare a unor informații și date pe un suport extern ( un dispozitiv de stocare), cu posibilitatea extinderii ușoare și a regăsirii rapide a acestora. 
+				Interfata Web va consta din incarcarea in paginile HTML a elementelor de design din CSS , sustinute de arhitectura in limbajul PHP,dar si JavaScript.
 				Pentru 
-				Pentru statistici vom utiliza biblioteca Chart.JS care vor putea fi descarcate in diverse formate(HTML,PDF,SVG).
+				Pentru statistici a fost utlizata biblioteca Chart.JS care vor putea fi descarcate in diverse formate(HTML,PDF,SVG).
 
 			</p>
 		</section>
@@ -91,7 +91,8 @@
 
 			<p>
 				Aplicația va folosi o arhitectură de tipul CLIENT/SERVER TCP concurent. Serverul va primi cererile de conectari de la clienți,după care va oferi acestora posibilitatea de a se loga sau de a se înregistra. Dacă logarea eșuează, clientului i se va propune încercarea de reconectare către server sau de a se înregistra . La înregistrare, se va verifica dacă clientul cu același nume nu există deja în baza de date, și în caz că nu , datele acestuia vor fi adăugate în baza de date. După înregistrare, clientul se poate loga ,iar daca logarea se termina cu succes se va accesa pagina de anunturi. 
-				Pe pagina Anunturi se regasesc toate anunturile postate pana la momentul actual in ordine descrescatoare cronologica. In cadrul paginii de anunt vom putea adauga un anunt cu informatii obligatorii cat si optionale, precum si locul in care a fost vazut animalul de companie pierdut. Pagina de statistici contine statistici referitoare la rata de succes a siteului nostru, media recompenselor in functie de perioada, zonele cele mai afectate de pierderi si cum s-au pierdut.<br><br>
+				Pe pagina Anunturi se regasesc toate anunturile postate pana la momentul actual in ordine  cronologica descrescatoare. In cadrul paginii de anunt vom putea adauga un anunt cu informatii obligatorii cat si optionale, precum si locul in care a fost vazut animalul de companie pierdut(utilizand ca OpenStreetMap pentru a lua cu drag and drop locatia unde s-a vazut ultima data animalul de companie). 
+				Pagina de statistici contine statistici referitoare la rata de succes a siteului nostru, media recompenselor in functie de perioada, zonele cele mai afectate de pierderi si cum s-au pierdut.<br><br>
 				Ca model arhitectural vom folosi MVC pentru o mai buna modularizare a aplicatiei. Modelul MVC separa partea de stocare a datelor(baza de date),de modul de prezentare al datelor(HTML,CSS,imagini) si de prelucrarea informatiei.
 				Model-ul se ocupa de comportarea si datele aplicatiei; raspunde la cereri despre starea sistemului, la cereri de schimbare de stare si notifica utilizatorul
 				atunci cand aceste schimbari au avut loc pentru ca acesta sa poata reactiona.
@@ -139,13 +140,15 @@
 			<h4> 4.2 Interfata actuala</h4>
 
 			<figure typeof="sa:Image">
-				<center><p><img src="lostpet.png"  width="90%"/></p> </center>
-				<center><p><img src="all_ads.png"  width="90%"/></p> </center>
-				<center><p><img src="statitistics.png"  width="90%"/></p> </center>
-				<center><p><img src="addad.png"  width="90%"/></p> </center>
-				<center><p><img src="login.png"  width="90%"/></p> </center>
-				<center><p><img src="register.png"  width="90%"/></p> </center>
-				<center><p><img src="homepage.jpg"  width="90%"/></p> </center>
+				<center><p><img src="home-ss.jpg"  width="90%"/></p> </center>
+				<center><p><img src="login-ss.jpg"  width="90%"/></p> </center>
+				<center><p><img src="register-ss.jpg"  width="90%"/></p> </center>
+				<center><p><img src="anunturi-ss.jpg"  width="90%"/></p> </center>
+				<center><p><img src="statistici-ss.jpg"  width="90%"/></p> </center>
+				<center><p><img src="mypersonalads-ss.jpg"  width="90%"/></p> </center>
+				<center><p><img src="addaad-ss.jpg"  width="90%"/></p> </center>
+				<center><p><img src="anad-ss.jpg"  width="90%"/></p> </center>
+
 				
 
 			</figure>
@@ -180,11 +183,11 @@
 
 			<h4>1. Inregistrarea in aplicatie</h4>
 			<h6>1.1. Obiectiv / Context</h6>
-			<p>1.Mai multi utilizatori se pot inregistra pe site, fiecare avand contul lui si date lui personale.</p>
+			<p>1.Mai multi utilizatori se pot inregistra pe site, fiecare avand contul lui si datele lui personale.</p>
 			<h6>1.2. Scenariu / Pași</h6>
-			<p>1. Utilizatorul va intra pe pagina web a aplicatiei, i se va prezenta pagina de start si apoi va apasa pe butonul de signup.</p>
+			<p>1. Utilizatorul va intra pe pagina web a aplicatiei, i se va prezenta pagina de start si apoi va apasa pe butonul de register.</p>
 			<p>2. Va fi trimis in pagina de inregistrare, unde i se vor cere informatii despre acesta.</p>
-			<p>3. Dupa apasarea butonului de submit, datele vor fi transmise in baza de date, urmAnd ca acesta sa se autentifice cu ele.</p>
+			<p>3. Dupa apasarea butonului de submit, datele vor fi transmise in baza de date, urmand ca acesta sa se autentifice cu ele.</p>
 			<p>4. Va fi trimis in pagina de autentificare, unde se va loga folosind contul si parola.</p>
 			<p>5. Dupa aceasta, va intra in contul sau si va putea interactiona complet cu aplicatia.</p>
 			<h6>1.3. Extensii</h6>
@@ -198,15 +201,15 @@
 			<p>2. Va fi trimis in pagina de autentificare, unde se va loga folosind contul si parola valida si specifica acestuia.</p>
 			<p>3. Dupa aceasta, va intra in contul sau si va putea interactiona complet cu aplicatia.</p>
 			<h6>3.3. Extensii</h6>
-			<p>1. In cazul unor informatii eronate, utilizatorul va trebui sa ofere din nou alt cont sau parola.</p>
+			<p>1. In cazul unor informatii eronate, utilizatorul va trebui sa ofere din nou contul si parola.</p>
 
 			<h4>3.Adaugarea unui anunt </h4>
 			<h6>3.1. Obiectiv / Context</h6>
 			<p>1.Utilizatorul, odata autentificat in aplicatie, isi va putea adauga anuntul dorit.</p>
 			<h6>3.2. Scenariu / Pași</h6>
 			<p>1. Utilizatorul, in partea de Anuntul meu, isi adauga anuntul cu animalul pierdut.</p>
-			<p>2. Acesta poate sa-si adauge informatii obligatorii(Nume,observatii specifice,poza,locatia ultimei vizualizari) si optionale (varsta,boli,recompensa,etc).</p>
-			<p>3. Are acces la anuntul sau si poate sa il editeze (sa adauge sau sa stearga informatii).</p>
+			<p>2. Acesta poate sa-si adauge informatii obligatorii(Nume,specie,numar de telefon,locatia ultimei vizualizari) si optionale (date despre zgarda,recompensa,alte detalii).</p>
+			<p>3. Are acces la anuntul sau si poate sa il editeze .</p>
 			<h6>3.3. Extensii</h6>
 			<p>2. Utilizatorul va primi un mesaj de avertizare in cazul in care informatiile obligatoriile nu au fost adaugate.</p> 
 
@@ -223,7 +226,7 @@
 
 			<h4>5. Vizualizarea tututor anunturilor</h4>
 			<h6>5.1. Obiectiv / Context</h6>
-			<p> Utilizatorul poate vizualiza toate anunturile in ordine cronologica a ultimei vizualizari a animalului pierdut.</p>
+			<p> Utilizatorul poate vizualiza toate anunturile in ordine cronologica a ultimei intalniri a animalului pierdut.</p>
 			<h6>5.2. Scenariu / Pași</h6>
 			<p>1. Utilizatorul vede toate anunturile</p>
 			<p>2. Utilizatorul alege unul si apasand se va redirectiona pe o pagina unde poate vedea toate informatiile despre anuntul dorit.</p>
@@ -238,8 +241,7 @@
 			<p>1. Utilizatorul are la indemana in sectiunea de Statistici un meniu in care poate descarca pentru fiecare "problema" in cele 3 formate disponibile.</p>
 			<p>3. Dupa selectare serverul proceseaza toate informatiile din baza de date si le distribuie in formatul dorit.</p>
 			<h6>6.3. Extensii</h6>
-			<p>1a. Pe langa problema se vor stabili si perioada pe care utilizatorul doreste sa le aiba in raport.</p>
-			<p>2a. Serverul salveaza in baza de date, data la care a fost cerut fiecare raport.</p>
+			<p>1a. Raportul este creat pentru luna curenta, de la inceputul ei pana la final.</p>
 
 
 
