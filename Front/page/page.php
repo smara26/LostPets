@@ -120,6 +120,8 @@ if (mysqli_num_rows($result) > 0) {
     }
 </script>
 
+<script src="./page.js"></script>
+
 </body>
 
 </html>
