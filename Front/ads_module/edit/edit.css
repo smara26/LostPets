@@ -1353,3 +1353,7 @@ body {
     display: block;
     margin: 1em;
     padding-top: 5em;}
+
+#mapdiv{
+  height:250px;
+}
