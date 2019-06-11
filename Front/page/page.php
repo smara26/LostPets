@@ -110,6 +110,8 @@ if (mysqli_num_rows($result) > 0) {
     ?>
 </div>
 
+<script src="./page.js"></script>
+
 </body>
 
 </html>
