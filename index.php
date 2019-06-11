@@ -3,7 +3,7 @@ $url =substr($_SERVER["REQUEST_URI"],1,-4);
 // var_dump($url);
 $url = explode("?",$url);
 
-echo $url[0];
+
 switch ($url[0]) {
     case 'ad.php':
         require 'Front/ads_module/ad/ad.php';
@@ -29,7 +29,7 @@ switch ($url[0]) {
     case 'add':
         require 'Front/ads_module/add/add.php';
         break;
-    case 'edit':
+    case 'edit.php':
         require 'Front/ads_module/edit/edit.php';
         break;
     case 'personal-ads':

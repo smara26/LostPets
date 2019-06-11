@@ -7,7 +7,7 @@ if (!empty($_POST['registerFName']) && !empty($_POST['registerLName']) && !empty
 
     if (!filter_var($uname, FILTER_VALIDATE_EMAIL) || ($_POST['registerPassword'] !== $_POST['registerRepeatPassword'])) {
         echo "<script>alert('Username or password is invalid!')</script>";
-        echo "<script>location.href='../Front/register/register.html'</script>";
+        echo "<script>location.href='../register.php'</script>";
 
     }
     $conn = mysqli_connect('localhost', 'root', '', 'lost_pets');
@@ -36,7 +36,7 @@ if (!empty($_POST['registerFName']) && !empty($_POST['registerLName']) && !empty
         $stmt2 = $conn->prepare($user_register);
         $stmt2->bind_param("sssssi", $uname,$pass,$fName,$lName,$gender,$age);
         $stmt2->execute();
-        echo "<script>location.href='../Front/login/login.html'</script>";
+        echo "<script>location.href='../login.php'</script>";
 
     }
 

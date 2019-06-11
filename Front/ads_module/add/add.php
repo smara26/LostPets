@@ -25,7 +25,7 @@ session_start();
       <i class="down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="../ad.php">My ad</a>
+      <a href="../personal-ads.php">My personal ads</a>
       <a href="../statistics.php">Statistics</a>
       <a href="../add.php">New ad</a>
     </div>
@@ -45,7 +45,7 @@ session_start();
   <div class="formMessage">
     <h3>Let us help you find your animal! Give us some details!</h3>
   </div>
-  <form id="form-wrap" action="../../../Back/add.php" method="POST" enctype="multipart/form-data">
+  <form id="form-wrap" action="Back/added.php" method="POST" enctype="multipart/form-data">
     <div>
       <label for="formPName">Pet's Name*:</label>
       <br>

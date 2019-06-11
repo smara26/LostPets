@@ -20,6 +20,7 @@ $stmt->store_result();
 if ($stmt->fetch()) {
     $image='Front/images/'.$picture;
 }
+$urledit='../edit.php?id='.$id;
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +44,7 @@ if ($stmt->fetch()) {
                 <i class="down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="../ad.php">My ad</a>
+                <a href="../personal-ads.php">My personal ads</a>
                 <a href="../statistics.php">Statistics</a>
                 <a href="../add.php">New ad</a>
 
@@ -117,6 +118,6 @@ if ($stmt->fetch()) {
     </div>
 
 </div>
-<a class="btn btn-ghost" href="../edit.php">Edit Ad</a>
+<a class="btn btn-ghost" href="<?=$urledit;?>">Edit Ad</a>
 </body>
 </html>

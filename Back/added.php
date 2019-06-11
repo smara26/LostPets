@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 if (!empty($_POST['formPName']) && !empty($_POST['lastPlaceC']) && !empty($_POST['dissapearanceDate']) && !empty($_POST['lastPlaceN']) && !empty($_POST['formSpecies']) && !empty($_POST['formPhone'])  && !empty($_POST['formTerms'])) {
     $uname = $_POST['formPName'];
     $image = $_FILES['formPImage']['name'][0];
@@ -9,9 +10,10 @@ if (!empty($_POST['formPName']) && !empty($_POST['lastPlaceC']) && !empty($_POST
     $collar = $_POST['formCollar'];
     $reward = $_POST['formReward'];
     $phone = $_POST['formPhone'];
+
     if (strlen($phone)!=10){
         echo "<script>alert('Invalid phone!')</script>";
-        echo "<script>location.href='../Front/ads_module/add/add.php'</script>";
+        echo "<script>location.href='../add.php'</script>";
     }
     $email = $_SESSION['uname'];
     $dissapear = $_POST['dissapearanceDate'];
@@ -21,7 +23,7 @@ if (!empty($_POST['formPName']) && !empty($_POST['lastPlaceC']) && !empty($_POST
 
     if($current_date<$dissapear){
         echo "<script>alert('Invalid date!')</script>";
-        echo "<script>location.href='../Front/ads_module/add/add.php'</script>";
+        echo "<script>location.href='../add.php'</script>";
     }
     $username=$_SESSION['uname'];
     $conn = mysqli_connect('localhost', 'root', '', 'lost_pets');
@@ -57,6 +59,7 @@ if ($stmt->fetch()) {
             echo "File not uploaded. Erorr";
         }
     }
+    header("Location:../all-ads.php");
 }
 mysqli_close($conn);
 ?>

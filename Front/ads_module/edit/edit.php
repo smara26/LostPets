@@ -1,130 +1,242 @@
 <?php
 session_start();
+$admin = $_SESSION['uname'];
+$conn = mysqli_connect('localhost', 'root', '', 'lost_pets');
+
+$url = explode("id=", $_SERVER['REQUEST_URI']);
+$id = explode("&", $url[1]);
+
+$id = ($id[0]);
+
+$edit_ad = "select `name`,breed,disappearance_date,marks,collar,last_seen_place,last_modify_date,picture,details,owner,phone,mail,reward,`found` from ads where id=?";
+$stmt = $conn->prepare($edit_ad);
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$stmt->bind_result($name, $breed, $disappearance_date, $marks, $collar, $last_seen_place, $last_modify_date, $picture, $details, $owner, $phone, $mail, $reward, $found);
+$stmt->store_result();
+
+if ($stmt->fetch()) {
+    $image = 'Front/images/' . $picture;
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>Edit your ad</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" type="text/css" href="Front/ads_module/edit/edit.css" />
-  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <title>Edit your ad</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="Front/ads_module/edit/edit.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
 
 <body>
 <header class="header-wrap">
-  <nav class="topnav">
-      <a href="Back/logout.php" class="active">Log out</a>
-    <div class="dropdown">
-      <button class="dropbtn"><?=$_SESSION['uname'];?>
-        <i class="down"></i>
-      </button>
-      <div class="dropdown-content">
-        <a href="../ad.php">My ad</a>
-        <a href="../statistics.php">Statistics</a>
-          <a href="../add.php">New ad</a>
+    <nav class="topnav">
+        <a href="Back/logout.php" class="active">Log out</a>
+        <div class="dropdown">
+            <button class="dropbtn"><?= $_SESSION['uname']; ?>
+                <i class="down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="../personal-ads.php">My personal ads</a>
+                <a href="../statistics.php">Statistics</a>
+                <a href="../add.php">New ad</a>
 
-      </div>
-    </div>
-    <a href="../all-ads.php">Announcements</a>
-    <div class="dropdown-notification">
-      <button class="notification">
-        <span></span>
-        <span class="badge">3</span>
-      </button>
-      <div class="dropdown-content-notification">
-        <a href="#">A new lost pet is near your area!</a>
-        <a href="#">John Mayer has just seen your pet recently.</a>
-        <a href="#">Maria Petrei has just seen your pet recently.</a>
-      </div>
-    </div>
-    <form action="http://google.com" method="GET">
-      <input type="search" name="searchIn" id="searchIn" placeholder="Search">
-    </form>
-    <div class="content-wrap">
-      <a href="../home.php">
-        <img src="Front/images/logo.jpg" alt="logo" class="logo">
-      </a>
-    </div>
-  </nav>
+            </div>
+        </div>
+        <a href="../all-ads.php">Announcements</a>
+        <div class="dropdown-notification">
+            <button class="notification">
+                <span></span>
+                <span class="badge">3</span>
+            </button>
+            <div class="dropdown-content-notification">
+                <a href="#">A new lost pet is near your area!</a>
+                <a href="#">John Mayer has just seen your pet recently.</a>
+                <a href="#">Maria Petrei has just seen your pet recently.</a>
+            </div>
+        </div>
+        <form action="http://google.com" method="GET">
+            <input type="search" name="searchIn" id="searchIn" placeholder="Search">
+        </form>
+        <div class="content-wrap">
+            <a href="../home.php">
+                <img src="Front/images/logo.jpg" alt="logo" class="logo">
+            </a>
+        </div>
+    </nav>
 </header>
 
+<?php
+if ($admin == $mail) {
+    ?>
 
+    <form id="form-wrap" action="Back/edited.php" method="POST" enctype="multipart/form-data">
+        <div>
+            <label for="id">Id:</label>
+            <br>
+            <input type="text" required id="id" name="id" readonly value="<?= $id; ?>"/>
+        </div>
+        <div>
+            <label for="formPName">Pet's Name*:</label>
+            <br>
+            <input type="text" required id="formPName" name="formPName" value="<?= $name; ?>"/>
+        </div>
+        <br>
+        <div>
+            <label for="file">Choose a photo of your buddy:</label>
+            <br>
+            <input type="file" id="file" name="formPImage[]"/>
+        </div>
+        <br>
+        <div>
+            <span>Place where you saw him/her last time*:</span>
 
-  <div class="lost-pet">
-    <div class="principle-details">
-      <img src="Front/images/charles-2.jpg" alt="Charles-The pug">
+            <br>
+            <label for="lastPlaceC">City:</label>
+            <input type="text" id="lastPlaceC" name="lastPlaceC" required>
+            <label for="lastPlaceN">Neighborhood</label>
+            <input type="text" id="lastPlaceN" name="lastPlaceN" required>
+        </div>
+        <br>
+        <div>
+            <label for="formSpecies">Species*:</label>
+            <br>
+            <input type="text" required id="formSpecies" name="formSpecies" value="<?= $breed; ?>"/>
+        </div>
+        <br>
+        <div>
+            <label for="formMarks">Personal marks:</label>
+            <br>
+            <input type="text" id="formMarks" name="formMarks" value="<?= $marks; ?>"/>
+        </div>
+        <br>
+        <div>
+            <label for="formCollar">Collar's details:</label>
+            <br>
+            <input type="text" id="formCollar" name="formCollar" value="<?= $collar; ?>"/>
+        </div>
+        <br>
+        <div>
+            <label for="formReward">Reward:</label>
+            <br>
+            <input type="number" id="formReward" name="formReward" value="<?= $reward; ?>"/>€
+        </div>
+        <br>
+        <div>
+            <label for="formPhone">Phone*:</label>
+            <br>
+            <input type="number" id="formPhone" name="formPhone" required value="<?= $phone; ?>"/>
+        </div>
+        <br>
+        <div>
+            <label for="dissapearanceDate">Disappearance date*:</label>
+            <br>
+            <input type="date" required id="dissapearanceDate" name="dissapearanceDate"
+                   value="<?= $disappearance_date; ?>"/>
+        </div>
+        <br>
+        <div>
+            <label for="lastSeen">Last date seen*:</label>
+            <br>
+            <input type="date" required id="lastSeen" name="lastSeen" value="<?= $last_modify_date; ?>"/>
+        </div>
+        <br>
+        <div>
+            <label for="moreDetails">More Details:</label>
+            <br>
+            <input type="text" id="moreDetails" name="moreDetails" value="<?= $details; ?>"/>
+        </div>
+        <div>
+            <label for="found">Found:</label>
+            <br>
+            <select name="found" required>
+                <option value="0" selected>Not found</option>
+                <option value="1">Found</option>
+            </select>
+        </div>
+        <br>
+        <div id="terms">
+            <input type="checkbox" value="terms" required id="formTerms" name="formTerms"/>
+            <label for="formTerms">I have read and accepted the Terms & Conditions</label>
+        </div>
+        <button class="button" type="submit">Edit Your Announce</button>
+        <!--    <a class="button" href="../page/page.html">Add Missing Pet</a>-->
+    </form>
+<?php
+} else { ?>
+    <div class="lost-pet">
+        <div class="principle-details">
+            <img src="<?= $image ?>" alt="Charles-The pug">
+            <div class="first-details">
 
-      <div class="first-details">
-        <h2>Details about the lost pet:</h2>
+                <h2>Details about the lost pet:</h2>
 
-        <p>
-          <label for="name-pet">Name: </label>
-          <input id="name-pet" name="name" placeholder="Charles">
-        </p>
+                <div class="name">
+                    <p>Name:</p>
+                    <div class="name-pet"><?= $name; ?></div>
+                </div>
 
-        <p>
-          <label for="breed-pet">Breed: </label>
-          <input id="breed-pet" name="breed" placeholder="Pug">
-        </p>
+                <div class="breed">
+                    <p>Breed:</p>
+                    <div class="breed-pet"><?= $breed; ?></div>
+                </div>
 
-        <p>
-          <label for="date-disp">Date of Disparition: </label>
-          <input id="date-disp" name="date" placeholder="15/03/2019">
-        </p>
+                <div class="date">
+                    <p>Disappearance date:</p>
+                    <div class="date-disp"><?= $disappearance_date; ?></div>
+                </div>
 
-        <h2>Contact:</h2>
+                <h2>Contact:</h2>
 
-        <p>
-          <label for="owner-pet">Owner: </label>
-          <input id="owner-pet" name="owner" placeholder="Sam Mendes">
-        </p>
+                <div class="owner">
+                    <p>Owner:</p>
+                    <div class="owner-name"><?= $owner ?></div>
+                </div>
 
-        <p>
-          <label for="owner-phone">Phone: </label>
-          <input id="owner-phone" name="phone" placeholder="0749 032 155">
-        </p>
+                <div class="phone">
+                    <p>Phone:</p>
+                    <div class="phone-owner"><?= $phone ?></div>
+                </div>
 
-        <p>
-          <label for="owner-mail">Mail: </label>
-          <input id="owner-mail" name="mail" placeholder="sam.mendes@gmail.com">
-        </p>
+                <div class="mail">
+                    <p>Mail:</p>
+                    <div class="mail-owner"><?= $mail ?></div>
+                </div>
+            </div>
+        </div>
+        <div class="down">
+            <div class="description">
+                <h2>More details:</h2>
+                <?= $details ?>
 
-      </div>
+                <div class="reward">
+                    <p>Reward:</p>
+                    <div class="reward-owner"><?= $reward; ?></div>
+                </div>
+            </div>
+
+            <div class="map">
+                <img id="map" src="Front/images/map.png" alt="The Map">
+            </div>
+        </div>
     </div>
-
-    <div class="description">
-      <h2>More details:</h2>
-      My poor pug responds at the name 'Charles'. He has just 5 months,
-      and a blue dog-collasr. Please, help me find him and, of course, the person that will
-      find him will receive a reward.
-
-      <p>
-        <label for="reward-pet">Reward: </label>
-        <input id="reward-pet" name="reward" placeholder="200$">
-      </p>
-    </div>
-
-    <div class="map">
-      <img id="map" src="Front/images/map.png" alt="The Map">
-    </div>
-  </div>
-
-  <a class="btn btn-ghost" href="#popup1">Save Changes</a>
-
-  <div id="popup1" class="overlay">
-    <div class="popup">
-      <h4>Do you want to save the changes?</h4>
-      <a id="close" href="#">&times;</a>
-      <div class="contentPU">
-        <a href="../ad/ad.php" class="button" id="cancel">Cancel</a>
-        <a href="../ad/ad.php" class="button" id="allow">Save</a>
-      </div>
-    </div>
-  </div>
+<?php } ?>
+<!--  <a class="btn btn-ghost" href="#popup1">Save Changes</a>-->
+<!---->
+<!--  <div id="popup1" class="overlay">-->
+<!--    <div class="popup">-->
+<!--      <h4>Do you want to save the changes?</h4>-->
+<!--      <a id="close" href="#">&times;</a>-->
+<!--      <div class="contentPU">-->
+<!--        <a href="../ad/ad.php" class="button" id="cancel">Cancel</a>-->
+<!--        <a href="../ad/ad.php" class="button" id="allow">Save</a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
 </body>
 
 </html>

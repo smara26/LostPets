@@ -23,7 +23,7 @@ session_start();
           <i class="down"></i>
         </button>
         <div class="dropdown-content">
-          <a href="../personal_ads.php">My ad</a>
+          <a href="../personal-ads.php">My personal ads</a>
           <a href="../statistics.php">Statistics</a>
           <a href="../add.php">New ad</a>
         </div>

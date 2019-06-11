@@ -33,7 +33,7 @@ if (mysqli_num_rows($result) > 0) {
                 <i class="down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="../ad.php">My ad</a>
+                <a href="../personal-ads.php">My personal ads</a>
                 <a href="../statistics.php">Statistics</a>
                 <a href="../add.php">New ad</a>
 

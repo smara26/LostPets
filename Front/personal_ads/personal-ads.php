@@ -7,10 +7,24 @@ $ads = new ads();
 $name=$_SESSION['uname'];
 $conn = mysqli_connect('localhost', 'root', '', 'lost_pets');
 
-$all_myads = "select * from ads where mail=?";
-if ($result = mysqli_query($conn, $all_myads)) {
-if (mysqli_num_rows($result) > 0) {
-    echo row['breed'];
+if($conn === false){
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+
+$sql="SELECT * FROM ads where mail='".$name."'";
+$result = mysqli_query($conn, $sql);
+
+//    }
+//
+//    // Free result set
+//    mysqli_free_result($result);
+//} else{
+//    echo "No records matching your query were found.";
+//}
+//}
+//
+//// Close connection
+//mysqli_close($conn);
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -19,7 +33,7 @@ if (mysqli_num_rows($result) > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="Front/personal-ads/personal-ads.css"/>
+    <link rel="stylesheet" type="text/css" href="Front/personal_ads/personal-ads.css"/>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <title>My personal ads</title>
 </head>
@@ -33,7 +47,7 @@ if (mysqli_num_rows($result) > 0) {
                 <i class="down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="../personal_ads.php">Personal ads</a>
+                <a href="../personal-ads.php">My personal ads</a>
                 <a href="../statistics.php">Statistics</a>
                 <a href="../add.php">New ad</a>
 
@@ -65,7 +79,7 @@ if (mysqli_num_rows($result) > 0) {
         <div class="number"><?= $ads->adsNumberP($name) ?> lost pets</div>
     </div>
     <ul id="manyads">
-        <?php while ($row = mysqli_fetch_array($result)) {?>
+        <?php while($row = mysqli_fetch_assoc($result)){?>
             <li class="ad">
                 <div class="list-image">
                     <?php
@@ -96,18 +110,16 @@ if (mysqli_num_rows($result) > 0) {
                     </div>
                 </div>
             </li>
+<?php
 
-            <?php
-            //mysqli_free_result($result);
-        }
-        }
+
+
+              //mysqli_free_result($result);
+
+         }
         ?>
-    </ul>
-    <?php
-    mysqli_close($conn);
-    }
 
-    ?>
+
 </div>
 
 </body>
