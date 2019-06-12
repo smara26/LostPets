@@ -109,18 +109,35 @@ if (mysqli_num_rows($result) > 0) {
 
     ?>
 </div>
-<script>
-    let zona = 0.045;
+<div id="user-id" style="display: none">
+    <?php echo $_SESSION['uid']; ?>
+</div>
 
-    if (navigator.geolocation) {
+<script src='Front/js/getUserLocation.js'></script>
+
+<script> function getFiltered()
+{
+	var input, ad_list_element, title, filter, len;
+	input = document.getElementById("searchIn");
+	filter = input.value.toUpperCase();
+	len = document.getElementsByClassName("ad").length;
+    
+    for(i = 0; i < len; i++)
+	{
+        ad_list_element = document.getElementsByClassName("ad")[i];
+        title = ad_list_element.getElementsByTagName("h4")[0];
         
-        navigator.geolocation.getCurrentPosition(coordinates => {
-        const coords = coordinates.coords;
-    });
-    }
-</script>
-
-<script src="./page.js"></script>
+		if(title.innerHTML.toUpperCase().indexOf(filter) > -1)
+		{
+			console.log(filter);
+			ad_list_element.style.display = "";
+		}
+		else
+		{
+			ad_list_element.style.display = "none";
+		}
+	}
+}</script>
 
 </body>
 
