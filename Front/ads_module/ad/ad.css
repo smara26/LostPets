@@ -683,3 +683,6 @@ form input {
   height: 100%;
 }
 
+#mapdiv{
+  height: 250px;
+}
