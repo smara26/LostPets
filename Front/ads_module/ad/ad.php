@@ -74,7 +74,7 @@ $urldel='../delete.php?id='.$id;
 </header>
 <div class="lost-pet">
     <div class="principle-details">
-        <img src="<?=$image?>" alt="Charles-The pug">
+        <img src="<?=$image?>" alt="image">
         <div class="first-details">
 
             <h2>Details about the lost pet:</h2>
@@ -152,7 +152,7 @@ if($mail==$uid) {
     ?>
     <form action="delete-ad.php">
         <a class="btn btn-ghost" href="<?=$urldel;?>">Delete my ad</a>
-        
+
     </form>
 
 

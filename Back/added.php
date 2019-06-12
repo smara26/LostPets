@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!empty($_POST['formPName']) && !empty($_POST['lastPlaceC']) && !empty($_POST['dissapearanceDate']) && !empty($_POST['lastPlaceN']) && !empty($_POST['formSpecies']) && !empty($_POST['formPhone'])  && !empty($_POST['formTerms'])) {
+if (!empty($_POST['formPName'])  && !empty($_POST['dissapearanceDate']) && !empty($_POST['formSpecies']) && !empty($_POST['formPhone'])  && !empty($_POST['formTerms'])) {
     $uname = $_POST['formPName'];
     $image = $_FILES['formPImage']['name'][0];
     $lastPlace = $_POST['lastPlaceC'] . " " . $_POST['lastPlaceN'];
@@ -10,7 +10,7 @@ if (!empty($_POST['formPName']) && !empty($_POST['lastPlaceC']) && !empty($_POST
     $collar = $_POST['formCollar'];
     $reward = $_POST['formReward'];
     $phone = $_POST['formPhone'];
-
+    echo 'da';
     if (strlen($phone)!=10){
         echo "<script>alert('Invalid phone!')</script>";
         echo "<script>location.href='../add.php'</script>";
@@ -35,9 +35,9 @@ if (!empty($_POST['formPName']) && !empty($_POST['lastPlaceC']) && !empty($_POST
     $stmt->store_result();
 if ($stmt->fetch()) {
     $owner=$last ." ". $first;}
-
     $register_ad = "INSERT INTO ads (`name`,breed,disappearance_date,marks,collar,last_seen_place,picture,details,owner,phone,mail,reward,last_modify_date) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
+    echo 'da';
     $stmt = $conn->prepare($register_ad);
     $stmt->bind_param("sssssssssssis", $uname, $breed, $dissapear, $marks, $collar, $lastPlace, $image, $details, $owner, $phone, $email, $reward,$lastSeen);
     $stmt->execute();
@@ -61,5 +61,5 @@ if ($stmt->fetch()) {
     }
     header("Location:../all-ads.php");
 }
-mysqli_close($conn);
+//mysqli_close($conn);
 ?>
