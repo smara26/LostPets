@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "directories": {
-    "doc": "../docs"
+    "doc": "docs"
   },
   "scripts": {
     "start": "nodemon --exec babel-node server.js"

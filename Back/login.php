@@ -10,17 +10,18 @@ if (!empty($_POST['loginEmail']) && !empty($_POST['loginPassword'])) {
     } else {
         session_start();
             $sql = mysqli_connect("localhost", "root", "", "lost_pets");
-            $name = "SELECT lastName,firstName from users WHERE email=? AND password=?";
+            $name = "SELECT id, lastName, firstName from users WHERE email=? AND password=?";
 
             $stmt = $sql->prepare($name);
             $stmt->bind_param("ss", $uname, $pass);
             $stmt->execute();
-            $stmt->bind_result($lastName, $firstName);
+            $stmt->bind_result($id, $lastName, $firstName);
             $stmt->store_result();
 
             if ($stmt->fetch()) {
 //                //initialization session
                 $_SESSION['uname'] = $uname;
+                $_SESSION['uid'] = $id;
                 header("Location:../all-ads.php");
 
             } else {

@@ -1,6 +1,6 @@
 import Sequelize from 'sequelize';
 
-const Ad = sequelize => {
+const AdModel = sequelize => {
   ad = sequelize.define('ad', {
     id: {
       type: Sequelize.INTEGER(10),
@@ -42,4 +42,4 @@ const Ad = sequelize => {
   return ad;
 };
 
-export default Ad;
+export default AdModel;

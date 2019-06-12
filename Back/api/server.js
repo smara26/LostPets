@@ -1,5 +1,5 @@
 import { createServer } from 'http';
-import router from './api/routes/router';
+import router from './routes/router';
 
 const hostname = 'localhost';
 const port = 3000;

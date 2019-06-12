@@ -2,7 +2,7 @@ import Sequelize from 'sequelize';
 
 const database = 'lost_pets';
 const user = 'root';
-const password = null;
+const password = '';
 
 const sequelize = new Sequelize(database, user, password, {
   host: 'localhost',
@@ -13,4 +13,5 @@ sequelize
   .authenticate()
   .then(() => console.log('Connected to database successfully'))
   .catch(() => console.error('Unable to connect to database'));
-module.exports = sequelize;
+
+export default sequelize;

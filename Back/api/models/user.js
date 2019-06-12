@@ -1,6 +1,6 @@
 import Sequelize from 'sequelize';
 
-const User = sequelize => {
+const UserModel = sequelize => {
   user = sequelize.define('user', {
     id: {
       type: Sequelize.INTEGER(10),
@@ -32,4 +32,4 @@ const User = sequelize => {
   return user;
 };
 
-export default User;
+export default UserModel;
