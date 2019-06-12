@@ -96,7 +96,9 @@ session_start();
 
             map.setView(position, 13);
             marker.setLatLng(position);
+                alert(latidude)
           });
+
           }
       </script>
     </div>

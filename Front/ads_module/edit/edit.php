@@ -94,7 +94,7 @@ if ($admin == $mail) {
         </div>
         <br>
         <div>
-            <label for="file">Choose a photo of your buddy:</label>
+            <label for="file">Choose a photo of your buddy:*</label>
             <br>
             <input type="file" id="file" name="formPImage[]"/>
         </div>
@@ -202,7 +202,7 @@ if ($admin == $mail) {
 } else { ?>
     <div class="lost-pet">
         <div class="principle-details">
-            <img src="<?= $image ?>" alt="Charles-The pug">
+            <img src="<?= $image ?>" alt="image">
             <div class="first-details">
 
                 <h2>Details about the lost pet:</h2>
@@ -250,7 +250,7 @@ if ($admin == $mail) {
                     <div class="reward-owner"><?= $reward; ?></div>
                 </div>
             </div>
-
+            <form>
             <div id="mapdiv"></div>
             <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
             <script>
@@ -271,6 +271,9 @@ if ($admin == $mail) {
                     marker.setLatLng(event.latlng);
                 });
             </script>
+                <button class="button" type="submit">Edit the last place where you see pet</button>
+
+            </form>
         </div>
     </div>
 <?php } ?>
