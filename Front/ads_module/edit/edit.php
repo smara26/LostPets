@@ -103,10 +103,14 @@ if ($admin == $mail) {
             <span>Place where you saw him/her last time*:</span>
 
             <br>
+            <?php
+            $latlong=explode(" ",$last_seen_place);
+            ?>
+
             <div id="mapdiv"></div>
             <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
             <script>
-                let position = [];
+                let position = [<?=$latlong[0]?>, <?=$latlong[1]?>];
                 map = L.map('mapdiv').setView(position, 13);
 
                 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic21hcmEwNyIsImEiOiJjandveDV4N3AwYTBnNDlxaWFuNWgyaTlnIn0.am9BJtDWhxI0ScNEotpthw', {
@@ -123,15 +127,7 @@ if ($admin == $mail) {
                     marker.setLatLng(event.latlng);
                 });
 
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(coordinates => {
-                    const coords = coordinates.coords;
-                    position = [coords.latitude, coords.longitude];
 
-                    map.setView(position, 13);
-                    marker.setLatLng(position);
-                });
-                }
             </script>
         </div>
         <br>

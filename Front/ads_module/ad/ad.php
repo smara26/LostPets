@@ -122,11 +122,14 @@ $urldel='../delete.php?id='.$id;
             <div class="reward-owner"><?=$reward;?></div>
         </div>
     </div>
+    <?php
+    $latlong=explode(" ",$last_seen_place);
+    ?>
 
     <div id="mapdiv"></div>
       <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
       <script>
-          let position = [51.505, -0.09];
+          let position = [<?=$latlong[0]?>, <?=$latlong[1]?>];
           map = L.map('mapdiv').setView(position, 13);
 
            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic21hcmEwNyIsImEiOiJjandveDV4N3AwYTBnNDlxaWFuNWgyaTlnIn0.am9BJtDWhxI0ScNEotpthw', {
@@ -142,6 +145,8 @@ $urldel='../delete.php?id='.$id;
             //alert("You clicked the map at " + event.latlng);
             marker.setLatLng(event.latlng);
           });
+
+
       </script>
 
 </div>

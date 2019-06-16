@@ -27,7 +27,7 @@ if(!empty($_POST['formPName'])&&!empty($_POST['formSpecies'])&&!empty($_POST['fo
     $formPhone=$_POST['formPhone'];
     $formReward=$_POST['formReward'];
     $imageName=$_FILES['formPImage']['name'][0];
-  
+
     if($name!=$formPName || $breed!=$formSpecies || $disappearance_date!=$dissapearanceDate
         || $marks!=$formMarks || $collar=$formCollar || $last_modify_date!=$lastSeen ||
             $details!=$moreDetails || $found!=$foundP || $phone!=$formPhone ||

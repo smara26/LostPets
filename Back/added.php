@@ -4,13 +4,11 @@ session_start();
 if (!empty($_POST['formPName'])  && !empty($_POST['dissapearanceDate']) && !empty($_POST['formSpecies']) && !empty($_POST['formPhone'])  && !empty($_POST['formTerms'])) {
     $uname = $_POST['formPName'];
     $image = $_FILES['formPImage']['name'][0];
-    $lastPlace = $_POST['lastPlaceC'] . " " . $_POST['lastPlaceN'];
     $breed = $_POST['formSpecies'];
     $marks = $_POST['formMarks'];
     $collar = $_POST['formCollar'];
     $reward = $_POST['formReward'];
     $phone = $_POST['formPhone'];
-    echo 'da';
     if (strlen($phone)!=10){
         echo "<script>alert('Invalid phone!')</script>";
         echo "<script>location.href='../add.php'</script>";
@@ -18,6 +16,7 @@ if (!empty($_POST['formPName'])  && !empty($_POST['dissapearanceDate']) && !empt
     $email = $_SESSION['uname'];
     $dissapear = $_POST['dissapearanceDate'];
     $lastSeen = $_POST['lastSeen'];
+    $lastPlace=$_POST['lat'] . " ".$_POST['long'];
     $details = $_POST['moreDetails'];
     $current_date=date("Y-m-d");
 
@@ -42,14 +41,13 @@ if ($stmt->fetch()) {
     $stmt->bind_param("sssssssssssis", $uname, $breed, $dissapear, $marks, $collar, $lastPlace, $image, $details, $owner, $phone, $email, $reward,$lastSeen);
     $stmt->execute();
 
-    $uploads_dir = "../Front/images";
 
+    $uploads_dir = "../Front/images";
     foreach ($_FILES["formPImage"]["error"] as $key => $value) {
         if ($value == UPLOAD_ERR_INI_SIZE) {
             echo "Uploaded file is too big.";
             die;
         }
-
         if ($value == UPLOAD_ERR_OK) {
             $tmp_name = $_FILES["formPImage"]["tmp_name"][$key];
             $name = basename($_FILES["formPImage"]["name"][$key]);
@@ -60,6 +58,6 @@ if ($stmt->fetch()) {
         }
     }
     header("Location:../all-ads.php");
+    mysqli_close($conn);
 }
-//mysqli_close($conn);
 ?>

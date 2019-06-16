@@ -16,7 +16,6 @@ while ($row = mysqli_fetch_assoc($result)) {
     $casearr[]=$row['details'];
 }
 $nm_array = json_encode($namearr);
-
 $cs_array = json_encode($casearr);
 
 ?>

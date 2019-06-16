@@ -29,8 +29,8 @@ class ads
         $stmt->store_result();
 
         if ($stmt->fetch()) {
-//                //initialization session
             echo $number;
         }
+        $mysqli->close();
     }
 }
