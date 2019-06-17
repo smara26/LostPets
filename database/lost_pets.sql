@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2019 at 09:32 PM
+-- Generation Time: Jun 17, 2019 at 04:22 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -21,15 +21,11 @@ SET time_zone = "+00:00";
 --
 -- Database: `lost_pets`
 --
-CREATE DATABASE IF NOT EXISTS `lost_pets` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `lost_pets`;
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `ads`
---
--- Creation: Jun 06, 2019 at 07:29 PM
 --
 
 CREATE TABLE `ads` (
@@ -51,23 +47,32 @@ CREATE TABLE `ads` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- RELATIONSHIPS FOR TABLE `ads`:
---
-
---
 -- Dumping data for table `ads`
 --
 
 INSERT INTO `ads` (`id`, `name`, `breed`, `disappearance_date`, `marks`, `collar`, `last_seen_place`, `last_modify_date`, `picture`, `details`, `owner`, `phone`, `mail`, `reward`, `found`) VALUES
-(1, 'Thora', 'amstaff', '2019-06-02', 'white belly', 'red leather', 'Sos. Pacurari, nr. 2Angtbtgbtgf', '0000-00-00', 'flala.jpg', NULL, 'Smara', '0777557799', 'smara0726@gmail.com', 3000, 0),
-(2, 'sfhdk', 'cv,kj', '2019-06-04', 'dfersh', NULL, 'etrlkjk', '0000-00-00', 'fgh', NULL, 'thyjluk', '567890009', 'fhghky', NULL, 0);
+(3, 'Nameded', 'qwewe', '2020-01-01', '', '', '47.1725036 27.547524', '2019-06-02', 'BazaDeDate.png', 'wewqe', 'ala bala', '0759015784', 'alabala@gmail.com', 0, 0),
+(4, 'test doggo', 'sadsa', '2019-06-07', '', '', '48.85378527483343 2.349817215721175', '2019-03-20', 'BazaDeDate.png', '', 'ala bala', '0745879874', 'alabala@gmail.com', 0, 0),
+(5, 'rere', 'wer', '2019-05-29', '', '', '51.10850353713832 -113.74252909171578', '2019-06-13', '', '', 'ala bala', '1561561651', 'alabala@gmail.com', 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notifications`
+--
+
+CREATE TABLE `notifications` (
+  `id` int(10) NOT NULL,
+  `user_id` int(10) NOT NULL,
+  `pet_name` varchar(100) NOT NULL,
+  `ad_id` int(10) NOT NULL,
+  `seen` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `users`
---
--- Creation: Jun 06, 2019 at 06:48 PM
 --
 
 CREATE TABLE `users` (
@@ -82,10 +87,6 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- RELATIONSHIPS FOR TABLE `users`:
---
-
---
 -- Dumping data for table `users`
 --
 
@@ -95,28 +96,19 @@ INSERT INTO `users` (`id`, `email`, `password`, `firstName`, `lastName`, `gender
 (3, 'georgiana@gmail.com', 'georgiana', 'Georgiana ', 'Elena', 'male', 23, NULL),
 (4, 'georgianae@gmail.com', '12345678', 'Georgiana ', 'Elena', 'female', 25, NULL),
 (5, '123456@gmail.ro', '123456', 'Georgiana ', 'aaa', 'female', 24, NULL),
-(6, '123234456@gmail.ro', '1234561', 'aaaaa', 'aaaa', 'null', 11, NULL);
+(6, '123234456@gmail.ro', '1234561', 'aaaaa', 'aaaa', 'null', 11, NULL),
+(7, 'alabala@gmail.com', '123456', 'ala', 'bala', 'female', 21, NULL);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `users_ads`
 --
--- Creation: Jun 06, 2019 at 07:24 PM
---
 
 CREATE TABLE `users_ads` (
   `user_id` int(10) NOT NULL,
   `ad_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- RELATIONSHIPS FOR TABLE `users_ads`:
---   `user_id`
---       `users` -> `id`
---   `ad_id`
---       `ads` -> `id`
---
 
 --
 -- Indexes for dumped tables
@@ -127,6 +119,14 @@ CREATE TABLE `users_ads` (
 --
 ALTER TABLE `ads`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `notifications`
+--
+ALTER TABLE `notifications`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id_fk` (`user_id`),
+  ADD KEY `ad_id_fk` (`ad_id`);
 
 --
 -- Indexes for table `users`
@@ -150,17 +150,30 @@ ALTER TABLE `users_ads`
 -- AUTO_INCREMENT for table `ads`
 --
 ALTER TABLE `ads`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `notifications`
+--
+ALTER TABLE `notifications`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `notifications`
+--
+ALTER TABLE `notifications`
+  ADD CONSTRAINT `ad_id_fk` FOREIGN KEY (`ad_id`) REFERENCES `ads` (`id`),
+  ADD CONSTRAINT `user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `users_ads`

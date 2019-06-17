@@ -2,6 +2,12 @@
 
 session_start();
 
+$conn = mysqli_connect('localhost', 'root', '', 'lost_pets');
+$mail = $_SESSION['uname'];
+
+$all_notifications = "SELECT * from notifications WHERE user_email='$mail'";
+
+if($notifs = mysqli_query($conn, $all_notifications)) {
 ?>
 
 <!DOCTYPE html>
@@ -45,9 +51,11 @@ session_start();
                 <span class="badge">3</span>
             </button>
             <div class="dropdown-content-notification">
-                <a href="#">A new lost pet is near your area!</a>
-                <a href="#">John Mayer has just seen your pet recently.</a>
-                <a href="#">Maria Petrei has just seen your pet recently.</a>
+            <?php  while ($row = mysqli_fetch_array($notifs)) { ?>
+                <a href="#"><?= $row['pet_name'] ?></a>
+            <?php }
+                }
+            ?>
             </div>
         </div>
         <form action="http://google.com" method="GET">
@@ -99,7 +107,9 @@ session_start();
                 navigator.geolocation.getCurrentPosition(coordinates => {
                     const coords = coordinates.coords;
                     position = [coords.latitude, coords.longitude];
-                    copyToFakeInputs(coords.latitude, coords.longitude);
+                    document.getElementById("changedLocation").value = 0;
+                    document.getElementById("initialLat").value = coords.latitude;
+                    document.getElementById("initialLong").value = coords.longitude;
                     map.setView(position, 13);
                     marker.setLatLng(position);
 
@@ -111,6 +121,7 @@ session_start();
                 marker.setLatLng(event.latlng);
                 const latitude = JSON.parse(JSON.stringify(event.latlng))['lat'];
                 const longitude = JSON.parse(JSON.stringify(event.latlng))['lng'];
+                document.getElementById("changedLocation").value = 1;
                 copyToFakeInputs(latitude, longitude);
             });
 
@@ -125,6 +136,10 @@ session_start();
     <div>
         <input type="hidden" id="long" name="long">
         <input type="hidden" id="lat" name="lat">
+        <input type="hidden" id="changedLocation" name="changedLocation">
+
+        <input type="hidden" id="initialLong" name="initialLong">
+        <input type="hidden" id="initialLat" name="initialLat">
         <label for="formSpecies">Species*:</label>
         <br>
         <input type="text" required id="formSpecies" name="formSpecies"/>

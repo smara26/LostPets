@@ -11,7 +11,6 @@ if (!empty($_POST['loginEmail']) && !empty($_POST['loginPassword'])) {
         session_start();
             $sql = mysqli_connect("localhost", "root", "", "lost_pets");
             $name = "SELECT id, lastName, firstName from users WHERE email=? AND password=?";
-
             $stmt = $sql->prepare($name);
             $stmt->bind_param("ss", $uname, $pass);
             $stmt->execute();

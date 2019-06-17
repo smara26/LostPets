@@ -60,7 +60,7 @@ $urldel='../delete.php?id='.$id;
 
             </div>
         </div>
-        <a href="../all-ads.php">Announcements</a>
+        <a href="../all-ads.php" onclick="updateDB()">Announcements</a>
         <div class="dropdown-notification">
             <button class="notification">
                 <span></span>

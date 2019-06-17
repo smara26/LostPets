@@ -9,8 +9,6 @@ $conn = mysqli_connect('localhost', 'root', '', 'lost_pets');
 
 $all_ads = "select * from ads ORDER BY last_modify_date desc";
 if ($result = mysqli_query($conn, $all_ads)) {
-if (mysqli_num_rows($result) > 0) {
-
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -21,6 +19,7 @@ if (mysqli_num_rows($result) > 0) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="Front/header.css"/>
     <link rel="stylesheet" type="text/css" href="Front/page/page.css"/>
+    <script src="Front/updateBD.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <title>Announcements</title>
 </head>
@@ -41,6 +40,7 @@ if (mysqli_num_rows($result) > 0) {
             </div>
         </div>
         <a href="../all-ads.php">Announcements</a>
+        <button onclick="updateDB()">Update Location</button>
         <div class="dropdown-notification">
             <button class="notification">
                 <span></span>
@@ -111,7 +111,6 @@ if (mysqli_num_rows($result) > 0) {
             <?php
             //mysqli_free_result($result);
         }
-        }
         ?>
     </ul>
     <?php
@@ -148,7 +147,8 @@ if (mysqli_num_rows($result) > 0) {
 			ad_list_element.style.display = "none";
 		}
 	}
-}</script>
+}
+</script>
 
 </body>
 
