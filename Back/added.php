@@ -57,6 +57,7 @@ if ($stmt->fetch()) {
             echo "File not uploaded. Erorr";
         }
     }
+
     header("Location:../all-ads.php");
     mysqli_close($conn);
 }

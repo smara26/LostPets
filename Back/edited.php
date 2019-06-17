@@ -24,6 +24,7 @@ if(!empty($_POST['formPName'])&&!empty($_POST['formSpecies'])&&!empty($_POST['fo
     $formCollar=$_POST['formCollar'];
     $lastSeen=$_POST['lastSeen'];
     $foundP=$_POST['found'];
+    $lastPlace=$_POST['lat'] . " ".$_POST['long'];
     $formPhone=$_POST['formPhone'];
     $formReward=$_POST['formReward'];
     $imageName=$_FILES['formPImage']['name'][0];
@@ -31,10 +32,10 @@ if(!empty($_POST['formPName'])&&!empty($_POST['formSpecies'])&&!empty($_POST['fo
     if($name!=$formPName || $breed!=$formSpecies || $disappearance_date!=$dissapearanceDate
         || $marks!=$formMarks || $collar=$formCollar || $last_modify_date!=$lastSeen ||
             $details!=$moreDetails || $found!=$foundP || $phone!=$formPhone ||
-            $reward!=$formReward || $picture!=$imageName){
+            $reward!=$formReward || $picture!=$imageName || $lastPlace != $last_seen_place){
 
         $sql="UPDATE ads SET phone='".$formPhone."' , name='".$formPName."' , picture='".$imageName."',breed='".$formSpecies."',
-         disappearance_date='".$dissapearanceDate."',marks='".$formMarks."',collar='".$formCollar."',last_modify_date='".$lastSeen."',
+         disappearance_date='".$dissapearanceDate."',marks='".$formMarks."',collar='".$formCollar."',last_seen_place='".$lastPlace."',last_modify_date='".$lastSeen."',
          details='".$moreDetails."',reward='".$formReward."', found='".$foundP."' WHERE id=?";
         echo $sql;
         $query = $conn->prepare($sql);

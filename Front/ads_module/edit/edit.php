@@ -28,6 +28,7 @@ if ($stmt->fetch()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="Front/header.css"/>
     <link rel="stylesheet" type="text/css" href="Front/ads_module/edit/edit.css"/>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
@@ -122,10 +123,30 @@ if ($admin == $mail) {
 
                 var marker = L.marker(position).addTo(map);
 
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(coordinates => {
+                        const coords = coordinates.coords;
+                        position = [coords.latitude, coords.longitude];
+                        copyToFakeInputs(coords.latitude, coords.longitude);
+                        map.setView(position, 13);
+                        marker.setLatLng(position);
+
+                    });
+
+                }
+
                 map.on('click', event => {
                     //alert("You clicked the map at " + event.latlng);
                     marker.setLatLng(event.latlng);
+                    const latitude = JSON.parse(JSON.stringify(event.latlng))['lat'];
+                    const longitude = JSON.parse(JSON.stringify(event.latlng))['lng'];
+                    copyToFakeInputs(latitude, longitude);
                 });
+
+                function copyToFakeInputs(latitude, longitude) {
+                    document.getElementById("lat").value=latitude;
+                    document.getElementById("long").value=longitude;
+                }
 
 
             </script>
@@ -164,6 +185,8 @@ if ($admin == $mail) {
         <div>
             <label for="dissapearanceDate">Disappearance date*:</label>
             <br>
+            <input type="hidden" id="long" name="long">
+            <input type="hidden" id="lat" name="lat">
             <input type="date" required id="dissapearanceDate" name="dissapearanceDate"
                    value="<?= $disappearance_date; ?>"/>
         </div>

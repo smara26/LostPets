@@ -295,89 +295,6 @@
 /*  color: #fe908b;*/
 /*}*/
 
-
-
-/*!*!*-----notification-------*!*!*/
-.notification {
-  color: white;
-  text-decoration: none;
-  padding: 14px 16px;
-   position: relative;
-  display: inline-block;
-  outline: none;
-  border: none;
-  background-color: inherit;
-  margin: 0;
-}
-
-.notification .badge {
-  position: absolute;
-  top: 1.4em;
-  right: -0.7em;
-  padding: 3px 8px;
-  border-radius: 50%;
-  background: pink;
-  color: white;
-  font-size: 12px;
-}
-
-.notification span:first-child:before {
-  content: url("https://img.icons8.com/material-sharp/15/000000/alarm.png")
-}
-
-
-.topnav a:hover,
-.dropdown:hover .notification {
-  background-color: #6a97c1ad;
-  color: white;
-}
-
-.dropdown-notification {
-  float: right;
-  overflow: hidden;
-}
-
-.dropdown-notification:hover .dropdown-content-notification {
-    display: block;
-}
-
-.dropdown-content-notification {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.dropdown-content-notification a {
-  /* float: none; */
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.dropdown-content-notification a:hover {
-  background-color: #6a97c1ad;
-  color: black;
-}
-
-.dropdown:hover .dropdown-content-notification {
-  display: block;
-}
-
-
-.dropdown-content-notification a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
 /*!* Big tablet to 1200px (widths smaller then the 1140px row) *!*/
 /*@media only screen and (max-width: 1500px) {*/
 
@@ -1015,7 +932,7 @@ h3{
     background-color: #5b81a4;
     margin:0 1em;
   }
-  .topnav a{
+  .topnav > a{
     float: right;
     display: inline-block;
     color: #f2f2f2;
@@ -1067,7 +984,7 @@ h3{
     background-color: #5b81a4;
     margin:0 0.5em;
   }
-  .topnav a{
+  .topnav > a{
     float: right;
     display: inline-block;
     color: #f2f2f2;
@@ -1114,7 +1031,7 @@ h3{
     max-width: 30%;
     display: block;
   }
-  .topnav a {
+  .topnav > a {
     float: right;
     display: inline-block;
     color: #f2f2f2;
@@ -1188,7 +1105,7 @@ body {
 }
 
 
-.topnav a:hover,
+.topnav > a:hover,
 .dropdown:hover .dropbtn {
   background-color: #6a97c1ad;
   color: white;

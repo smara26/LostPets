@@ -200,7 +200,7 @@ h3{
         background-color: #5b81a4;
         margin:0 1em;
     }
-    .topnav a{
+    .topnav > a{
         float: right;
         display: inline-block;
         color: #f2f2f2;
@@ -252,7 +252,7 @@ h3{
         background-color: #5b81a4;
         margin:0 0.5em;
     }
-    .topnav a{
+    .topnav > a{
         float: right;
         display: inline-block;
         color: #f2f2f2;
@@ -299,7 +299,7 @@ h3{
         max-width: 30%;
         display: block;
     }
-    .topnav a {
+    .topnav > a {
         float: right;
         display: inline-block;
         color: #f2f2f2;
@@ -376,7 +376,7 @@ body {
 }
 
 
-.topnav a:hover,
+.topnav > a:hover,
 .dropdown:hover .dropbtn {
     background-color: #6a97c1ad;
     color: white;
