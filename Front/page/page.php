@@ -53,7 +53,7 @@ if ($result = mysqli_query($conn, $all_ads)) {
             </button>
             <div class="dropdown-content-notification">
                 <?php  while ($row = mysqli_fetch_array($notifs)) { ?>
-                    <a href="#"><?= $row['pet_name'] ?></a>
+                    <a href=<?="../ad.php?id=".$row['ad_id']?>><?= $row['pet_name'] ?></a>
                 <?php }
                     }
                 ?>
