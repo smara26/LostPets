@@ -23,10 +23,12 @@ if (!empty($_POST['formPName'])  && !empty($_POST['dissapearanceDate']) && !empt
     $details = $_POST['moreDetails'];
     $current_date = date("Y-m-d");
 
-    if ($current_date < $dissapear) {
-        echo "<script>alert('Invalid date!')</script>";
+    if ($current_date < $dissapear || $lastSeen>$current_date ) {
+        echo "<script>alert('Dissapearance date or last seen date is invalid!')</script>";
         echo "<script>location.href='../add.php'</script>";
     }
+
+    else {
     $username = $_SESSION['uname'];
     $conn = mysqli_connect('localhost', 'root', '', 'lost_pets');
     $check_admin = "SELECT firstName,lastName from users where email=?";
@@ -111,4 +113,4 @@ if (!empty($_POST['formPName'])  && !empty($_POST['dissapearanceDate']) && !empt
     header("Location:../all-ads.php");
     mysqli_close($conn);
 
-}
+}}

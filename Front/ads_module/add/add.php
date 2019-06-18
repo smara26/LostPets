@@ -6,7 +6,6 @@ $conn = mysqli_connect('localhost', 'root', '', 'lost_pets');
 $mail = $_SESSION['uname'];
 
 $all_notifications = "SELECT * from notifications WHERE user_email='$mail'";
-
 if($notifs = mysqli_query($conn, $all_notifications)) {
 ?>
 
@@ -92,7 +91,7 @@ if($notifs = mysqli_query($conn, $all_notifications)) {
         <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
         <script>
             let position = [51.505, -0.09];
-            map = L.map('mapdiv').setView(position, 13);
+           map = L.map('mapdiv').setView(position, 13);
 
             L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic21hcmEwNyIsImEiOiJjandveDV4N3AwYTBnNDlxaWFuNWgyaTlnIn0.am9BJtDWhxI0ScNEotpthw', {
                 attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
