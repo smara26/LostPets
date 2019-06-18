@@ -39,7 +39,6 @@ if (!empty($_POST['formPName'])  && !empty($_POST['dissapearanceDate']) && !empt
     if ($stmt->fetch()) {
         $owner = $last . " " . $first;
     }
-    
     $register_ad = "INSERT INTO ads (`name`,breed,disappearance_date,marks,collar,last_seen_place,picture,details,owner,phone,mail,reward,last_modify_date) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
     $stmt = $conn->prepare($register_ad);
