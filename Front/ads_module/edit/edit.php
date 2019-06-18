@@ -19,7 +19,6 @@ if ($stmt->fetch()) {
     $image = 'Front/images/' . $picture;
 }
 $latlong=explode(" ",$last_seen_place);
-
 ?>
 
 <!DOCTYPE html>
@@ -220,9 +219,12 @@ if ($admin == $mail) {
 <?php
 } else { ?>
 
-<form action="Back/edited.php" method="POST" enctype="multipart/form-data">
+<form action="Back/editedAsUser.php" method="POST" enctype="multipart/form-data">
     <div class="lost-pet">
         <div class="principle-details">
+            
+        <input type="text" required id="id" name="id" readonly value="<?= $id; ?>"/>
+
             <img src="<?= $image ?>" alt="image">
             <div class="first-details">
 
