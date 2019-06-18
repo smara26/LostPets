@@ -19,6 +19,7 @@ if (!empty($_POST['formPName'])  && !empty($_POST['dissapearanceDate']) && !empt
     $lastSeen = $_POST['lastSeen'];
     $initialLat = $_POST['initialLat'];
     $initialLong = $_POST['initialLong'];
+    $initialCoordinates = $_POST['initialLat'] . " " . $_POST['initialLong'];
     $lastPlace = $_POST['lat'] . " " . $_POST['long'];
     $details = $_POST['moreDetails'];
     $current_date = date("Y-m-d");
@@ -44,7 +45,12 @@ if (!empty($_POST['formPName'])  && !empty($_POST['dissapearanceDate']) && !empt
     $register_ad = "INSERT INTO ads (`name`,breed,disappearance_date,marks,collar,last_seen_place,picture,details,owner,phone,mail,reward,last_modify_date) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
     $stmt = $conn->prepare($register_ad);
-    $stmt->bind_param("sssssssssssis", $uname, $breed, $dissapear, $marks, $collar, $lastPlace, $image, $details, $owner, $phone, $email, $reward, $lastSeen);
+    
+    if($_POST['changedLocation'] == 0) {
+        $stmt->bind_param("sssssssssssis", $uname, $breed, $dissapear, $marks, $collar, $initialCoordinates, $image, $details, $owner, $phone, $email, $reward, $lastSeen);
+    }else {
+        $stmt->bind_param("sssssssssssis", $uname, $breed, $dissapear, $marks, $collar, $lastPlace, $image, $details, $owner, $phone, $email, $reward, $lastSeen);
+    }
     $stmt->execute();
 
     // Get last notification id

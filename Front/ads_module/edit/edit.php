@@ -18,6 +18,8 @@ $stmt->store_result();
 if ($stmt->fetch()) {
     $image = 'Front/images/' . $picture;
 }
+$latlong=explode(" ",$last_seen_place);
+
 ?>
 
 <!DOCTYPE html>
@@ -104,14 +106,12 @@ if ($admin == $mail) {
             <span>Place where you saw him/her last time*:</span>
 
             <br>
-            <?php
-            $latlong=explode(" ",$last_seen_place);
-            ?>
 
             <div id="mapdiv"></div>
             <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
             <script>
-                let position = [<?=$latlong[0]?>, <?=$latlong[1]?>];
+                let position = [<?php echo $latlong[0]; ?>, <?php echo $latlong[1]; ?>];
+
                 map = L.map('mapdiv').setView(position, 13);
 
                 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic21hcmEwNyIsImEiOiJjandveDV4N3AwYTBnNDlxaWFuNWgyaTlnIn0.am9BJtDWhxI0ScNEotpthw', {
@@ -219,6 +219,8 @@ if ($admin == $mail) {
     </form>
 <?php
 } else { ?>
+
+<form action="Back/edited.php" method="POST" enctype="multipart/form-data">
     <div class="lost-pet">
         <div class="principle-details">
             <img src="<?= $image ?>" alt="image">
@@ -260,6 +262,8 @@ if ($admin == $mail) {
             </div>
         </div>
         <div class="down">
+                <input type="hidden" id="long" name="long">
+                       <input type="hidden" id="lat" name="lat">
             <div class="description">
                 <h2>More details:</h2>
                 <?= $details ?>
@@ -269,11 +273,16 @@ if ($admin == $mail) {
                     <div class="reward-owner"><?= $reward; ?></div>
                 </div>
             </div>
-            <form>
+            
+            <?php 
+                $latlong=explode(" ",$last_seen_place);
+            ?>
+
             <div id="mapdiv"></div>
             <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
             <script>
-                let position = [];
+              let position = [<?php echo $latlong[0]; ?>, <?php echo $latlong[1]; ?>];
+                
                 map = L.map('mapdiv').setView(position, 13);
 
                 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic21hcmEwNyIsImEiOiJjandveDV4N3AwYTBnNDlxaWFuNWgyaTlnIn0.am9BJtDWhxI0ScNEotpthw', {
@@ -285,16 +294,38 @@ if ($admin == $mail) {
 
                 var marker = L.marker(position).addTo(map);
 
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(coordinates => {
+                        const coords = coordinates.coords;
+                        copyToFakeInputs(coords.latitude, coords.longitude);
+                        map.setView(position, 13);
+                        marker.setLatLng(position);
+
+                    });
+
+                }
+
                 map.on('click', event => {
                     //alert("You clicked the map at " + event.latlng);
                     marker.setLatLng(event.latlng);
+                    const latitude = JSON.parse(JSON.stringify(event.latlng))['lat'];
+                    const longitude = JSON.parse(JSON.stringify(event.latlng))['lng'];
+                    copyToFakeInputs(latitude, longitude);
                 });
+
+                function copyToFakeInputs(latitude, longitude) {
+                    document.getElementById("lat").value=latitude;
+                    document.getElementById("long").value=longitude;
+                }
+
+
             </script>
                 <button class="button" type="submit">Edit the last place where you see pet</button>
 
-            </form>
+            
         </div>
     </div>
+    </form>
 <?php } ?>
 </body>
 

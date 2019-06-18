@@ -60,7 +60,7 @@ $urldel='../delete.php?id='.$id;
 
             </div>
         </div>
-        <a href="../all-ads.php" onclick="updateDB()">Announcements</a>
+        <a href="../all-ads.php" >Announcements</a>
         <div class="dropdown-notification">
             <button class="notification">
                 <span></span>
@@ -141,7 +141,7 @@ $urldel='../delete.php?id='.$id;
     <div id="mapdiv"></div>
       <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
       <script>
-          let position = [<?=$latlong[0]?>, <?=$latlong[1]?>];
+          let position = [<?php echo $latlong[0]; ?>, <?php echo $latlong[1]; ?>];
           map = L.map('mapdiv').setView(position, 13);
 
            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic21hcmEwNyIsImEiOiJjandveDV4N3AwYTBnNDlxaWFuNWgyaTlnIn0.am9BJtDWhxI0ScNEotpthw', {

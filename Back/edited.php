@@ -1,6 +1,7 @@
 <?php
 
-if(!empty($_POST['formPName'])&&!empty($_POST['formSpecies'])&&!empty($_POST['formPhone'])&&!empty($_POST['dissapearanceDate'])&&isset($_POST['found'])) {
+if((!empty($_POST['formPName'])&&!empty($_POST['formSpecies'])&&!empty($_POST['formPhone'])&&!empty($_POST['dissapearanceDate'])&&isset($_POST['found'])) 
+||(!empty($_POST['lat'] && !empty($_POST['long'])))) {
     $id = $_POST['id'];
 
     $conn = mysqli_connect('localhost', 'root', '', 'lost_pets');
@@ -30,6 +31,10 @@ if(!empty($_POST['formPName'])&&!empty($_POST['formSpecies'])&&!empty($_POST['fo
     $imageName=$_FILES['formPImage']['name'][0];
 
     //echo $imageName;
+
+
+    echo $lastPlace;
+    die;
 
     $current_date = date("Y-m-d");
 
