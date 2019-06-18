@@ -23,9 +23,9 @@ if ($stmt->fetch()) {
 $urledit='../edit.php?id='.$id;
 $urldel='../delete.php?id='.$id;
 
-$mail = $_SESSION['uname'];
+$mailM = $_SESSION['uname'];
 
-$all_notifications = "SELECT * from notifications WHERE user_email='$mail'";
+$all_notifications = "SELECT * from notifications WHERE user_email='$mailM'";
 if($notifs = mysqli_query($conn, $all_notifications)) {
 
 ?>

@@ -20,10 +20,6 @@ if ($stmt->fetch()) {
 }
 $latlong=explode(" ",$last_seen_place);
 
-$mail = $_SESSION['uname'];
-
-$all_notifications = "SELECT * from notifications WHERE user_email='$mail'";
-if($notifs = mysqli_query($conn, $all_notifications)) {
 
 ?>
 
@@ -69,11 +65,6 @@ if($notifs = mysqli_query($conn, $all_notifications)) {
                 <span class="badge">3</span>
             </button>
             <div class="dropdown-content-notification">
-                <?php  while ($row = mysqli_fetch_array($notifs)) { ?>
-                    <a href=<?="../ad.php?id=".$row['ad_id']?>><?= $row['pet_name'] ?></a>
-                <?php }
-                    }
-                ?>
             </div>
         </div>
         <form action="http://google.com" method="GET">
@@ -231,7 +222,7 @@ if ($admin == $mail) {
     <div class="lost-pet">
         <div class="principle-details">
             
-        <input type="text" required id="id" name="id" readonly value="<?= $id; ?>"/>
+        <input type="hidden" required id="id" name="id" readonly value="<?= $id; ?>"/>
 
             <img src="<?= $image ?>" alt="image">
             <div class="first-details">

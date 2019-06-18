@@ -1,5 +1,6 @@
 <?php
 
+
 if((!empty($_POST['formPName'])&&!empty($_POST['formSpecies'])&&!empty($_POST['formPhone'])&&!empty($_POST['dissapearanceDate'])&&isset($_POST['found']))) {
     $id = $_POST['id'];
 
