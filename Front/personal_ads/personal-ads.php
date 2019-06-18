@@ -14,6 +14,11 @@ if($conn === false){
 $sql="SELECT * FROM ads where mail='".$name."'";
 $result = mysqli_query($conn, $sql);
 
+$mail = $_SESSION['uname'];
+
+$all_notifications = "SELECT * from notifications WHERE user_email='$mail'";
+if($notifs = mysqli_query($conn, $all_notifications)) {
+
 //    }
 //
 //    // Free result set
@@ -61,9 +66,11 @@ $result = mysqli_query($conn, $sql);
                 <span class="badge">3</span>
             </button>
             <div class="dropdown-content-notification">
-                <a href="#">A new lost pet is near your area!</a>
-                <a href="#">John Mayer has just seen your pet recently.</a>
-                <a href="#">Maria Petrei has just seen your pet recently.</a>
+                <?php  while ($row = mysqli_fetch_array($notifs)) { ?>
+                    <a href="#"><?= $row['pet_name'] ?></a>
+                <?php }
+                    }
+                ?>
             </div>
         </div>
         <form action="http://google.com" method="GET">
