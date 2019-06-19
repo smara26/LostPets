@@ -27,25 +27,14 @@ $sql = "UPDATE ads SET last_seen_place='" . $lastPlace . "' WHERE id=?";
             $query->close();
 
 
-$seenPositive = 1;
-$sql2 = "UPDATE notifications SET seen='" . $seenPositive . "' WHERE ad_id=?";
-$query = $conn->prepare($sql2);
-$query->bind_param('s', $id);
-$query->execute();
-
-$query->close();
-
 $register_notification = "INSERT INTO notifications (user_email,pet_name,ad_id,seen) VALUES (?,?,?,1)";
 $stmt = $conn->prepare($register_notification);
 $stmt->bind_param("ssi", $email, $pet_name, $id);
 $stmt->execute();
 $stmt->close();
 
+$url = '../ad.php?id=' . $id;
 
-
-
-            $url = '../ad.php?id=' . $id;
-
-            header("Location:$url");
+header("Location:$url");
 
 ?>

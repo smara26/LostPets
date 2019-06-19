@@ -82,6 +82,9 @@ if($notifs = mysqli_query($conn, $all_notifications)) {
             ?>
             </div>
         </div>
+        <form action="http://google.com" method="GET">
+            <input type="search" name="searchIn" id="searchIn" placeholder="Search">
+        </form>
         <div class="content-wrap">
             <a href="../home.php">
                 <img src="Front/images/logo.jpg" alt="logo" class="logo">
