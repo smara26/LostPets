@@ -25,6 +25,8 @@ if($notifs = mysqli_query($conn, $all_notifications)) {
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
             integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
             crossorigin=""></script>
+    <script src="Front/updateBD.js"></script>
+    <script src="Front/numberNotif.js"></script>
     <title>Registration my ad</title>
     <link rel="icon" href="../../images/logo.jpg" style="width:5px;">
 </head>
@@ -47,11 +49,13 @@ if($notifs = mysqli_query($conn, $all_notifications)) {
         <div class="dropdown-notification">
             <button class="notification">
                 <span></span>
-                <span class="badge">3</span>
+                <span id="numberNotif" class="badge">3</span>
             </button>
             <div class="dropdown-content-notification">
             <?php  while ($row = mysqli_fetch_array($notifs)) { ?>
-                <a href=<?="../ad.php?id=".$row['ad_id']?>><?= $row['pet_name'] ?></a>
+                <a href=<?php 
+                    echo "../ad.php?id=".$row['ad_id'];
+                    ?>><?= $row['pet_name'] ?> let's see what happened</a>
             <?php }
                 }
             ?>

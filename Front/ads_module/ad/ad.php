@@ -44,6 +44,8 @@ if($notifs = mysqli_query($conn, $all_notifications)) {
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
     crossorigin=""/>
+    <script src="Front/updateBD.js"></script>
+    <script src="Front/numberNotif.js"></script>
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
     integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
     crossorigin=""></script>
@@ -68,18 +70,18 @@ if($notifs = mysqli_query($conn, $all_notifications)) {
         <div class="dropdown-notification">
             <button class="notification">
                 <span></span>
-                <span class="badge">3</span>
+                <span id="numberNotif" class="badge">3</span>
             </button>
             <div class="dropdown-content-notification">
             <?php  while ($row = mysqli_fetch_array($notifs)) { ?>
-                <a href=<?="../ad.php?id=".$row['ad_id']?>><?= $row['pet_name'] ?></a>
+                <a href=<?php 
+                    echo "../ad.php?id=".$row['ad_id'];
+                    ?>><?= $row['pet_name'] ?> let's see what happened</a>
             <?php }
                 }
             ?>
+            </div>
         </div>
-        <form action="http://google.com" method="GET">
-            <input type="search" name="searchIn" id="searchIn" placeholder="Search">
-        </form>
         <div class="content-wrap">
             <a href="../home.php">
                 <img src="Front/images/logo.jpg" alt="logo" class="logo">

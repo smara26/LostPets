@@ -21,3 +21,5 @@ function updateDB(){
     navigator.geolocation.watchPosition(c);
     return false;
 }
+
+updateDB();

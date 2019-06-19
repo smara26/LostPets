@@ -40,6 +40,8 @@ $latlong=explode(" ",$last_seen_place);
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
     integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
     crossorigin=""></script>
+    <script src="Front/numberNotif.js"></script>
+    <script src="Front/updateBD.js"></script>
     <link rel="icon" href="../../images/logo.jpg" style="width:5px;">
 </head>
 
@@ -59,14 +61,6 @@ $latlong=explode(" ",$last_seen_place);
             </div>
         </div>
         <a href="../all-ads.php">Announcements</a>
-        <div class="dropdown-notification">
-            <button class="notification">
-                <span></span>
-                <span class="badge">3</span>
-            </button>
-            <div class="dropdown-content-notification">
-            </div>
-        </div>
         <form action="http://google.com" method="GET">
             <input type="search" name="searchIn" id="searchIn" placeholder="Search">
         </form>

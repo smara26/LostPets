@@ -11,6 +11,7 @@ session_start();
   <link rel="stylesheet" type="text/css" href="Front/header.css"/>
   <link rel="stylesheet" type="text/css" href="Front/statistics/statistics.css" />
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <script src="Front/updateBD.js"></script>
   <title>Statistics</title>
   <link rel="icon" href="Front/images/logo.jpg" style="width:5px;">
 </head>
@@ -30,20 +31,6 @@ session_start();
         </div>
       </div>
       <a href="../all-ads.php">Announcements</a>
-      <div class="dropdown-notification">
-            <button class="notification">
-                <span></span>
-                <span class="badge">3</span>
-            </button>
-            <div class="dropdown-content-notification">
-                <a href="#">A new lost pet is near your area!</a>
-                <a href="#">John Mayer has just seen your pet recently.</a>
-                <a href="#">Maria Petrei has just seen your pet recently.</a>
-            </div>
-        </div>
-      <form action="http://google.com" method="GET">
-        <input type="search" name="searchIn" id="searchIn" placeholder="Search">
-      </form>
       <div class="content-wrap">
         <a href="../home.php">
           <img src="Front/images/logo.jpg" alt="logo" class="logo">

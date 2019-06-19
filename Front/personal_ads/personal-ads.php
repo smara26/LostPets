@@ -39,6 +39,8 @@ if($notifs = mysqli_query($conn, $all_notifications)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="Front/header.css"/>
+    <script src="Front/updateBD.js"></script>
+    <script src="Front/numberNotif.js"></script>
     <link rel="stylesheet" type="text/css" href="Front/personal_ads/personal-ads.css"/>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <title>My personal ads</title>
@@ -63,18 +65,20 @@ if($notifs = mysqli_query($conn, $all_notifications)) {
         <div class="dropdown-notification">
             <button class="notification">
                 <span></span>
-                <span class="badge">3</span>
+                <span id="numberNotif" class="badge">3</span>
             </button>
             <div class="dropdown-content-notification">
                 <?php  while ($row = mysqli_fetch_array($notifs)) { ?>
-                    <a href=<?="../ad.php?id=".$row['ad_id']?>><?= $row['pet_name'] ?></a>
+                    <a href=<?php 
+                        echo"../ad.php?id=".$row['ad_id'];
+                        ?>><?= $row['pet_name'] ?> let's see what happened</a>
                 <?php }
                     }
                 ?>
             </div>
         </div>
         <form action="http://google.com" method="GET">
-            <input type="search" name="searchIn" id="searchIn" placeholder="Search">
+            <input type="search" name="searchIn" id="searchIn" placeholder="Search" onkeyup="getFiltered()">
         </form>
         <div class="content-wrap">
             <a href="../home.php">
@@ -136,7 +140,30 @@ if($notifs = mysqli_query($conn, $all_notifications)) {
 
          }
         ?>
-
+<script> function getFiltered()
+{
+	var input, ad_list_element, title, filter, len;
+	input = document.getElementById("searchIn");
+	filter = input.value.toUpperCase();
+	len = document.getElementsByClassName("ad").length;
+    
+    for(i = 0; i < len; i++)
+	{
+        ad_list_element = document.getElementsByClassName("ad")[i];
+        title = ad_list_element.getElementsByTagName("h4")[0];
+        
+		if(title.innerHTML.toUpperCase().indexOf(filter) > -1)
+		{
+			console.log(filter);
+			ad_list_element.style.display = "";
+		}
+		else
+		{
+			ad_list_element.style.display = "none";
+		}
+	}
+}
+</script>
 
 </div>
 

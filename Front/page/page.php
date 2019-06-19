@@ -25,6 +25,7 @@ if ($result = mysqli_query($conn, $all_ads)) {
     <link rel="stylesheet" type="text/css" href="Front/header.css"/>
     <link rel="stylesheet" type="text/css" href="Front/page/page.css"/>
     <script src="Front/updateBD.js"></script>
+    <script src="Front/numberNotif.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <title>Announcements</title>
 </head>
@@ -45,15 +46,16 @@ if ($result = mysqli_query($conn, $all_ads)) {
             </div>
         </div>
         <a href="../all-ads.php">Announcements</a>
-        <button onclick="updateDB()">Update Location</button>
         <div class="dropdown-notification">
             <button class="notification">
                 <span></span>
-                <span class="badge">3</span>
+                <span id="numberNotif" class="badge">3</span>
             </button>
             <div class="dropdown-content-notification">
                 <?php  while ($row = mysqli_fetch_array($notifs)) { ?>
-                    <a href=<?="../ad.php?id=".$row['ad_id']?>><?= $row['pet_name'] ?></a>
+                    <a href=<?php 
+                        echo "../ad.php?id=".$row['ad_id'];
+                        ?>><?= $row['pet_name'] ?> let's see what happened</a>
                 <?php }
                     }
                 ?>
@@ -130,7 +132,6 @@ if ($result = mysqli_query($conn, $all_ads)) {
     <?php echo $_SESSION['uid']; ?>
 </div>
 
-<script src='Front/js/getUserLocation.js'></script>
 
 <script> function getFiltered()
 {
